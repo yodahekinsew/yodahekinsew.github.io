@@ -1,0 +1,143 @@
+body {
+    background-color: #E2F0CC;
+}
+
+#opening {
+    width: 100vw;
+    height: 100vh;
+}
+
+#name {
+    font-family: Limelight;
+    font-size: 72px;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    width: 40vw;
+    height: 10vh;
+    margin-left: -20vw;
+    margin-top: -5vh;
+}
+
+#reverse-name {
+    font-family: Limelight;
+    font-size: 72px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    top: 42%;
+    left: 50%;
+    width: 40vw;
+    height: 10vh;
+    margin-left: -20vw;
+    margin-top: -5vh;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    transform:rotate(-180deg);
+}
+
+#name-underline {
+    background-color: #000000;
+    height: .5vh;
+    width: 50vw;
+    margin-left: -10vw;
+}
+
+#reverse-name-underline {
+    background-color: #ffffff;
+    height: .5vh;
+    width: 50vw;
+}
+
+#bullets {
+    position: absolute;
+    height: 100vh;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bullet {
+    border-radius: 50%;
+    -moz-border-radius:50%;
+    -khtml-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: 10vh;
+    margin-left: 5vw;
+    z-index: -1;
+}
+
+#bullet1 {
+    background-image: linear-gradient(to right,  #000000 0%,#000000 100%,#E2F0CC 100%,#E2F0CC 100%);
+}
+
+#bullet2 {
+    background-image: linear-gradient(to right,  #000000 0%,#000000 100%,#E2F0CC 100%,#E2F0CC 100%);
+}
+
+#bullet3 {
+    background-image: linear-gradient(to right,  #000000 0%,#000000 100%,#E2F0CC 100%,#E2F0CC 100%);
+}
+
+#bullet4 {
+    background-color : #ffffff;
+}
+
+.title {
+    position: relative;
+    margin-left: 20vw;
+    font-family: Limelight;
+    font-size: 60px;
+    text-align: right;
+    width: 500px;
+    height: 50px;
+}
+
+.title-underline {
+    background-color: #ffffff;
+    margin-top: -1vh;
+    height: .25vh;
+    width: 45vw;
+    margin-left: 10vw;
+}
+
+.content {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 5vh;
+    font-size: 20px;
+    text-align: left;
+}
+
+#about {
+    position: relative;
+    width: 60vw;
+    left: 30vw;
+    height: 100vh;
+}
+
+#portfolio {
+    position: relative;
+    width: 60vw;
+    left: 30vw;
+    height: 100vh;
+}
+
+#resume {
+    position: relative;
+    width: 60vw;
+    left: 30vw;
+    height: 100vh;
+}
+
+#ending {
+    position: relative;
+    width: 60vw;
+    left: 30vw;
+    height: 100vh;
+}

@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Limelight&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+        <div id = "opening">
+            <div id="name">
+                Yodahe Alemu
+                <div id = "name-underline"></div>
+            </div>
+            <div id="reverse-name">
+                Yodahe Alemu
+                <div id = "reverse-name-underline"></div>
+            </div>
+        </div>
+        <div id = "content">
+            <div id = "bullets">
+                <div id = "bullet1" class = "bullet"></div>
+                <div id = "bullet2" class = "bullet"></div>
+                <div id = "bullet3" class = "bullet"></div>
+                <div id = "bullet4" class = "bullet"></div>
+            </div>
+            <div id = "content-box">
+                <div id = "about">
+                    <div class = "title">
+                        about
+                    </div>
+                    <div class = "title-underline"></div>
+                    <div class = "content">
+                        Hi, nice to meet you! <br/><br/>
+                        My name is Yodahe Alemu and I love making things look aesthetic. I also love creating cool new interactions between people and technology.<br/>
+                        These are my passions and I'm constantly learning to get better at doing them. <br/><br/><br/>
+                        In my freetime I really like to draw! Just drawing anything that comes in my head really.<br/><br/>
+                        I also enjoy making cool or funny (maybe both) videos, messing around on photoshop, having pictures taken of me, and doing a podcast with my friend.<br/><br/>
+                    </div>
+                </div>
+                <div id = "portfolio">
+                    <div class = "title">
+                        portfolio
+                    </div>
+                    <div class = "title-underline"></div>
+                    <div class = "content">
+                        Your next line is wow he does so much, he's amazing! <span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-style:italic;">NANI!!</span><br/><br/>
+                        I think the stuff I've worked on is really cool and had a lot of fun doing it. I'm excited about what I'll get to work on in the future.<br/><br/>
+                        <span style="font-weight: bold;">AR prototyping game</span><br/>
+                        This semester I'll be working in the Human Computer Interaction lab at MIT. I'll be working on a team to work on a really cool application of Augmented Reality. We'll be desigining AR games for the purpose of teaching users prototyping skills. I'll be using Unity, 3D Rhino, and Blender to build and design a game, and then run a user-study to see how effective the game is on teaching users. Check back in at the end of this semester to see my results!
+                        <br/><br/>
+                        <span style="font-weight: bold;">DDR v4: Under the Moonlight</span><br/>
+                        A Dance Dance Revolution copy that my girlfriend and I had a lot of fun working on together. The project was basically a game built in UNITY that read inputs from an SQL Database which read inputs from a simple set of wooden boards linked up with Arduino microcontrollers. One of my favorite projects which acts as proof that software and design can be super fun outside of school or professional life!
+                        <br/><br/>
+                        <span style="font-weight: bold;">the p3n</span><br/>
+                        My friends and I built a really fun project in a class called 6.08 (or Embedded systems). The project was a 3D drawing tool, which we named the P3N. The entire system used a microcontroller device, a website renderer built with Three.js, and a SQLite python-based server. The system allowed users to draw in 3D - either alone or collaboritvely with other users - and gave users control over certain aspects of their drawing expericene, such as pen size, drawing speed, pen color, and others. The device used a microphone sensor to receive commands from the user and an IMU for directional input from the user.
+                        <br/><br/>
+                        <span style="font-weight: bold;">NEWS</span><br/>
+                        Built a news app intending to broaden the user's views by presenting them video clips from news sources that are of different political standings then the user. The app utilizes a feedback system that takes in a user's input (liking or disliking a video) in order to learn the user's political news preference and then uses that preference to show them new video clips from opposing news stations.
+                        <br/><br/>
+                        <span style="font-weight: bold;">HTTP Server Crossword</span><br/>
+                        Built from the ground up a software system that allowed multiple users to select ongoing crossword puzzle games - or create their own - from an http server, which we also created, and play in realtime against other users. The software was written entirely in Java and uses a web-based server.
+                    </div>
+                </div>
+                <div id = "resume">
+                    <div class = "title">
+                        experiences
+                    </div>
+                    <div class = "title-underline"></div>
+                    <div class = "content"></div>
+                </div>
+            </div>
+        </div>
+        <div id = "ending">
+            Thanks for looking at my page
+            <img src = "bye.gif">
+        </div>
+    </body>
+    <script>
+        //beginning animation when website opens
+
+
+        window.addEventListener("scroll", function() {
+            var elem = document.getElementById("content");
+            var isShown = (elem.style.opacity == "100%");
+            if (window.scrollY > window.innerHeight/2) {
+                reveal(elem, window.innerHeight/2, window.innerHeight);
+            } else {
+                elem.style.opacity = 0;
+            }
+        });
+
+
+        window.addEventListener("scroll", function() {
+            var elem = document.getElementById("bullets");
+            var isPositionFixed = (elem.style.position == "fixed");
+            if (window.scrollY > window.innerHeight && !isPositionFixed) {
+                elem.style.position = "fixed";
+                elem.style.top = "0px";
+            }
+            if (window.scrollY < window.innerHeight && isPositionFixed) {
+                elem.style.position = "absolute";
+                elem.style.top = window.scrollY;
+            }
+        });
+
+        window.addEventListener("scroll", function() {
+            //Based on scroll select which bullet to fill or drain or clear
+            var start = window.innerHeight;
+            var bullet1 = document.getElementById("bullet1");
+            var bullet2 = document.getElementById("bullet2");
+            var bullet3 = document.getElementById("bullet3");
+            var scrollVal = window.scrollY + 200;
+
+            if (scrollVal < start) {
+                fill(bullet1);
+                fill(bullet2);
+                fill(bullet3);
+            } else if (scrollVal > start && scrollVal < (start + document.getElementById("about").scrollHeight)) {
+                drain(bullet1, start, document.getElementById("about").scrollHeight);
+                fill(bullet2);
+                fill(bullet3);
+            } else if (scrollVal > (start + document.getElementById("about").scrollHeight)
+                && scrollVal < (start + document.getElementById("about").scrollHeight + document.getElementById("portfolio").scrollHeight)) {
+                drain(bullet2, start + document.getElementById("about").scrollHeight, document.getElementById("portfolio").scrollHeight);
+                clear(bullet1);
+                fill(bullet3);
+            } else if (scrollVal > (start + document.getElementById("about").scrollHeight + document.getElementById("portfolio").scrollHeight)) {
+                drain(bullet3, start + document.getElementById("about").scrollHeight + document.getElementById("portfolio").scrollHeight, document.getElementById("resume").scrollHeight);
+                clear(bullet1);
+                clear(bullet2);
+            } else if (scrollVal > (start + document.getElementById("about").scrollHeight + document.getElementById("portfolio").scrollHeight + document.getElementById("resume").scrollHeight)) {
+                clear(bullet1);
+                clear(bullet2);
+                clear(bullet3);
+            }
+        });
+
+        function reveal(elem, start, end) {
+            elem.style.opacity = (window.scrollY-start)/(end-start);
+        }
+        function clear(bullet) {
+            bullet.style.backgroundImage = "linear-gradient(to right,  #000000 0%,#000000 0%,#E2F0CC 0%,#E2F0CC 100%)";
+        }
+        function fill(bullet) {
+            bullet.style.backgroundImage = "linear-gradient(to right,  #000000 100%,#000000 100%,#E2F0CC 100%,#E2F0CC 100%)";
+        }
+
+        function drain(bullet, start, total) {
+            var percent_to_drain = Math.round(100 - 100*((window.scrollY+200-start)/total));
+            bullet.style.backgroundImage = `linear-gradient(to right,  #000000 0%,#000000 ${percent_to_drain}%,#E2F0CC ${percent_to_drain}%,#E2F0CC 100%)`;
+        }
+    </script>
+</html>
