@@ -66,7 +66,24 @@
                         experiences
                     </div>
                     <div class = "title-underline"></div>
-                    <div class = "content"></div>
+                    <div class = "content">
+                        Here are some of my recent professional experiences!<br/><br/>
+                        <span style="font-weight: bold;">EP SOFTWARE ENGINEERING INTERN, GOOGLE, MOUNTAIN VIEW, CA — JUN 2019 - SEP 2019</span><br/>
+                        Implemented and integrated a competitor analysis feature in order to improve cases of over flagging in Google Ads machine learning model.  Tasks included SQL scripting, database management, meeting and collaborating with other teams, and writing C++ code to work with large amounts of data.
+                        <br/><br/>
+                        <span style="font-weight: bold;">FULLSTACK DEVELOPMENT INTERN, NASDAQ, BOSTON, MA — JAN 2018 - FEB 2019</span><br/>
+                        Built and designed a ride-sharing app with a team of fellow interns in order to showcase an effective use case of Nasdaq's Markets Everywhere platform. Technologies used included React-Native to build the app and NodeJS to run an API server. Facilitated and organized meetings with different groups in order to discuss the Market's Everywhere Platform such as H&M, Converse, and Boston City Hall. 
+                        <br/><br/>
+                        <span style="font-weight: bold;">SOFTWARE ENGINEERING INTERN, INTEL, CHANDLER, AZ — JUN 2018 - SEP 2018</span><br/>
+                        Programmed a reinforcement learning model and long-short term memory statistical model that acted as a plugin to help improve network efficiencies for platforms. Tasks included python scripting, data analysis, compiling benchmarks, automating measurements, and researching and building machine learning models that best fit the scope of the problem.
+                        <br/><br/>
+                        <span style="font-weight: bold;">UNDERGRADUATE RESEARCHER, MEDIA LAB, CAMBRIDGE, MA — JAN 2019 - PRESENT</span><br/>
+                        Designed and developed react-native News app with the Viral Communications group for the purpose of exposing the user to new ideas and different news outlets than to which they are accustomed. Gathered user data from users in Media Lab and incorporated new ideas from data.
+                        <br/><br/>
+                        <span style="font-weight: bold;">6.009 TEACHING ASSISTANT, MIT CSAIL, CAMBRIDGE, MA — SEP 2018 - PRESENT</span><br/>
+                        Mentoring and assisting students with programming labs and material from the Fundamentals of Programming course during office hours. 
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,7 +116,7 @@
                     clearInterval(moving_lines);
                     showNames();
                 }
-            }, 40);
+            }, 25);
         }
 
         function showNames() {
@@ -108,11 +125,11 @@
             var opacity = 0;
             var show_header = setInterval(function() {
                 //slowly fade in names
-                opacity += .05;
+                opacity += .025;
                 black_name.style.opacity = opacity;
                 white_name.style.opacity = opacity;
                 if (opacity == 1) clearInterval(show_header);
-            }, 40);
+            }, 25);
         }
 
 
