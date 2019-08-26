@@ -77,6 +77,43 @@
     </body>
     <script>
         //beginning animation when website opens
+        window.onbeforeunload = function(){
+            window.scrollTo(0,0);
+        }
+
+        animateLines();
+        
+        function animateLines() {
+            var white_pos = -100;
+            var black_pos = 50;
+            var black_line = document.getElementById("name-underline");
+            var white_line = document.getElementById("reverse-name-underline");
+            delta = 15;
+            var moving_lines = setInterval(function() {
+                black_pos -= delta;
+                white_pos += delta;
+                delta = Math.round(.8*delta);
+                black_line.style.marginLeft = `${black_pos}vw`;
+                white_line.style.marginLeft = `${white_pos}vw`;
+                if (black_pos <= -30) {
+                    clearInterval(moving_lines);
+                    showNames();
+                }
+            }, 40);
+        }
+
+        function showNames() {
+            var black_name = document.getElementById("name");
+            var white_name = document.getElementById("reverse-name");
+            var opacity = 0;
+            var show_header = setInterval(function() {
+                //slowly fade in names
+                opacity += .05;
+                black_name.style.opacity = opacity;
+                white_name.style.opacity = opacity;
+                if (opacity == 1) clearInterval(show_header);
+            }, 40);
+        }
 
 
         window.addEventListener("scroll", function() {
