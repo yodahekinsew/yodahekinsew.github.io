@@ -59,7 +59,7 @@ class Overlay extends React.Component {
                 </div>
                 <div className="ByMe">- a website by yodahe -</div>
                 <div className="Contact">
-                    <a href="/yodahe_resume.pdf"><img className="logo" src={resume}/></a>
+                    <a href="/website/yodahe_resume.pdf"><img className="logo" src={resume}/></a>
                     <a href="mailto:yodahekinsew@gmail.com"><img className="logo" src={email}/></a>
                     <a href="https://www.linkedin.com/in/yodahe-alemu/"><img className="logo" src={linkedin}/></a>
                     <a href="https://github.com/yodahekinsew"><img className="logo" src={github}/></a>
