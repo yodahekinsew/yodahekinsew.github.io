@@ -1,0 +1,78 @@
+.Overlay {
+    z-index: 3;
+    background-color: var(--dark-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: fixed;
+    right: 0px;
+    color: var(--light-color);
+    text-align: right;
+    width: 25vw;
+    min-width: 300px;
+    max-width: 500px;
+    height: 100vh;
+    letter-spacing: 10px;
+    opacity: 1;
+}
+
+.Header {
+    font-size: max(17.5px, min(30px, 1.25vw));
+    position: absolute;
+    right: 1vw;
+    top: 3.5vh;
+    font-weight: bolder;
+    direction: left;
+    cursor: pointer;
+
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+    /* background: linear-gradient(to left, var(--dark-color) 0px, var(--light-color) 0px);
+    background-clip: text;
+    color: var(--light-color); */
+}
+
+.Header:hover {
+    font-size: max(18px, min(31px, 1.275vw));
+}
+
+.Options {
+    /* font-size: 15px; */
+    position: absolute;
+    /* opacity: .75; */
+    right: 1vw;
+    top: 6.5vh;
+    /* width: 25vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Contact {
+    font-size: 20px;
+    position: absolute;
+    right: 1vw;
+    bottom: 5vh;
+}
+
+.ByMe {
+    position: absolute;
+    bottom: 2vh;
+    right: 1vw;
+    font-size: max(10px, min(15px, 1vw));
+    letter-spacing: .2vw;
+}
+
+.logo {
+    max-width: 35px;
+    min-width: 25px;
+    width: 2vw;
+    margin-left: 1vw;
+
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.logo:hover {
+    max-width: 37.5px;
+    min-width: 27.5px;
+}

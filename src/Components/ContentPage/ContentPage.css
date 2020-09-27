@@ -1,0 +1,81 @@
+.ContentPage {
+    position: absolute;
+    right: 0px;
+    width: 0;
+    height: 100vh;
+    min-width: 0px;
+    overflow: hidden;
+    background-color: var(--dark-color);
+    opacity: 0;
+
+    transition-property: width min-width;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+}
+
+.Sideline {
+    background-color: var(--dark-color);
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    height: 100vh;
+    width: 2.5vw;
+    align-items: center;
+    box-sizing: border-box;
+    /* border-top: .5vh solid var(--dark-accent-color); */
+    /* border-bottom: .5vh solid var(--dark-accent-color); */
+    border-left: 1.1vh solid var(--light-color);
+
+    transition-duration: .5s;
+}
+
+.Sideheader {
+    /* background-color: whitesmoke; */
+    /* height: 2.5vw; */
+    /* width: 25vh; */
+    position: absolute;
+    bottom: 0px;
+    left: 55%;
+    opacity: .5;
+
+    transform: rotate(-90deg) translateY(-45%);
+    transform-origin: top left;
+
+    color: var(--dark-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: calc(10px + 1vw);
+    letter-spacing: 10px;
+
+    transition-duration: .5s;
+}
+
+.Markdown {
+    color: var(--light-color);
+    position: relative;
+    top: 2.5vh;
+    left: 6vw;
+    text-align: left;
+    width: 65vw;
+    height: 92.5vh;
+    overflow-y: scroll;
+}
+
+.Markdown::-webkit-scrollbar {
+    display: none;
+}
+
+.Markdown > h1 {
+    font-size: max(20px, min(100px, 5vw));
+    color: var(--light-color);
+    margin-bottom: 2vh;
+}
+
+.Markdown > h2 {
+    font-size: max(15px, min(35px, 5vw));
+    color: var(--dark-accent-color);
+}
+
+.Markdown > p {
+    font-size: max(10px, min(20px, 5vw));
+}

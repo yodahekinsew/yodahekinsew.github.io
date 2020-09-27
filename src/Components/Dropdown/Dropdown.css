@@ -1,0 +1,78 @@
+.Dropdown {
+    /* float: right; */
+    margin-top: 1vh;
+}
+
+.dropdownHeader {
+    /* float: right; */
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
+.dropdownLabel.light {
+    color: var(--dark-accent-color);
+}
+
+.dropdownLabel.dark {
+    color: var(--light-accent-color);
+}
+
+.dropdownTriangle, .dropdownLabel, .dropdownContents, .dropdownContents > div {
+    transition-property: max-height, font-size, height, transform, opacity;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(1, 0, 0, 1), ease-in-out;
+}
+
+.dropdownTriangle {
+    max-width: 250px;
+    height: max(13px, min(20px, 1vw));
+    margin-right: 20px;
+    transform: rotate(90deg);
+}
+
+.dropdownLabel {
+    /* color: var(--dark-accent-color); */
+    font-size: max(13px, min(20px, 1vw));
+}
+
+.dropdownContents {
+    margin-top: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0vh;
+    opacity: 0;
+}
+
+.dropdownContents > div {
+    font-size: max(13px, min(20px, 1vw));
+    margin-top: 1vh;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.dropdownHeader:hover .dropdownLabel{
+    font-size: max(13.5px, min(20.5px, 1.125vw));
+}
+
+.dropdownHeader:hover .dropdownTriangle{
+    height: max(13.5px, min(20.5px, 1.125vw));
+}
+
+.dropdownContents > div:hover {
+    font-size: max(14px, min(21px, 1.25vw));
+    opacity: 1;
+}
+
+@keyframes selected {
+    0% {font-size: 1vw;}
+    100% {font-size: 2vw;}
+}
+
+@keyframes unselected {
+    0% {font-size: 2vw;}
+    100% {font-size: 1vw}
+}

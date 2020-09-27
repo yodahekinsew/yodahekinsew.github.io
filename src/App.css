@@ -1,3 +1,14 @@
+:root {
+  --dark-color: #060214;
+  --light-color: #ffffff;
+  --dark-accent-color: #64FFBD;
+  --light-accent-color: #9B0042;
+}
+
+body {
+  background-color: var(--dark-color);
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +25,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #060214;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,11 +39,27 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes yodahe-up-down {
   from {
-    transform: rotate(0deg);
+    transform: translate(0px, 0px);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(0px, 10px);
+    /* transform: rotate(360deg); */
   }
+}
+
+.yodahe {
+  z-index: -1;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 50vw;
+  max-width: 1000px;
+  min-width: 250px;
+  animation: yodahe-up-down infinite 5s linear alternate;
+
+  transition-property: opacity;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out;
 }
