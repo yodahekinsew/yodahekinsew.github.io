@@ -28,7 +28,7 @@ class ContentPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/website/Pages/" + this.props.page + ".md").then(file => file.text()).then(markdown => this.setState({markdown: markdown}));
+    fetch("/Pages/" + this.props.page + ".md").then(file => file.text()).then(markdown => this.setState({markdown: markdown}));
   }
 
   handleClick = () => {
