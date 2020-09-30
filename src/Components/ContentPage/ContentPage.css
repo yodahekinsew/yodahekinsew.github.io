@@ -6,7 +6,6 @@
     min-width: 0px;
     overflow: hidden;
     background-color: var(--dark-color);
-    opacity: 0;
 
     transition-property: width min-width;
     transition-duration: .5s;
@@ -20,12 +19,14 @@
     left: 0vw;
     height: 100vh;
     width: 2.5vw;
+    opacity: 0;
     align-items: center;
     box-sizing: border-box;
     /* border-top: .5vh solid var(--dark-accent-color); */
     /* border-bottom: .5vh solid var(--dark-accent-color); */
     border-left: 1.1vh solid var(--light-color);
 
+    transition-property: opacity;
     transition-duration: .5s;
 }
 
@@ -42,12 +43,16 @@
     transform-origin: top left;
 
     color: var(--dark-color);
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: calc(10px + 1vw);
     letter-spacing: 10px;
 
     transition-duration: .5s;
+}
+
+.MarkdownHolder {
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
 }
 
 .Markdown {
@@ -74,6 +79,12 @@
 .Markdown > h2 {
     font-size: max(15px, min(35px, 5vw));
     color: var(--dark-accent-color);
+}
+
+.Markdown > h3 {
+    font-size: max(12.5px, min(25px, 5vw));
+    color: var(--light-color);
+    opacity: .5;
 }
 
 .Markdown > p {

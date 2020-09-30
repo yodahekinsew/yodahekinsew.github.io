@@ -15,7 +15,7 @@ const pages = [
   "google",
   "nasdaq",
   "intel",
-  "mit ta",
+  "teaching",
   "temporun",
   "pongpongpanic",
   "blockslide",

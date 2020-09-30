@@ -11,7 +11,7 @@ import linkedin from '../../Images/Logos/linkedin-logo.png';
 function Option (label, mode, selected, setSelected, setHighlighted) {
     return <div className={`${mode} Option`} 
         style={selected == label ? {opacity: 1} : {}}
-        onClick={() => {setSelected(label)}}
+        onClick={() => {selected == label ? setSelected("") : setSelected(label)}}
         onMouseEnter={() => {setHighlighted(label)}}
         onMouseLeave={() => {setHighlighted("")}}>
             {label}
@@ -32,7 +32,7 @@ class Overlay extends React.Component {
                     YODAHE ALEMU
                 </div>
                 <div className="Options">
-                    <Dropdown mode={this.props.mode} label={"ABOUTME"}>
+                    <Dropdown mode={this.props.mode} label={"ABOUT ME"}>
                         {Option("EDUCATION", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}
                         {Option("INTERESTS", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}
                     </Dropdown>
@@ -44,7 +44,7 @@ class Overlay extends React.Component {
                         {Option("GOOGLE", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}
                         {Option("NASDAQ", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}
                         {Option("INTEL", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}
-                        {Option("MIT TA", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}
+                        {Option("TEACHING", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}
                     </Dropdown>
                     <Dropdown mode={this.props.mode} label={"PROJECTS"}>
                         {Option("TEMPORUN", this.props.mode, this.props.selected, this.props.setSelected, this.props.setHighlighted)}

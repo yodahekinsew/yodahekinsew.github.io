@@ -37,15 +37,16 @@ class ContentPage extends React.Component {
 
   render() {
     var selected = this.state.selected.toLowerCase() == this.props.page;
-    var prevSelected = this.props.selected.toLowerCase() != this.props.page && selected;
     var highlighted = this.props.highlighted.toLowerCase() == this.props.page;
     return (
-      <div style={prevSelected ? {minWidth: "100vw", zIndex: 0, opacity: 1} : selected ? {minWidth: "100vw", zIndex: 1, opacity: 1} : highlighted ? {minWidth: "calc(max(350px, min(500px, 25vw)) + .5vw)", zIndex: 2, opacity: 1} : {minWidth: "calc(max(350px, min(500px, 25vw))", zIndex: 0, opacity: 0}} 
+      <div style={selected ? {minWidth: "100vw", zIndex: 1} : highlighted ? {minWidth: "calc(max(350px, min(500px, 25vw)) + .5vw)", zIndex: 2} : {minWidth: "calc(max(350px, min(500px, 25vw))", zIndex: 0}} 
       className="ContentPage" onClick={this.handleClick}>
-        <div style={{borderColor: selected ? "var(--dark-accent-color)" : "var(--light-color)"}} className="Sideline">
+        <div style={{borderColor: selected ? "var(--dark-accent-color)" : "var(--light-color)", opacity: selected || highlighted ? 1 : 0}} className="Sideline">
           {/* <div className="Sideheader">{this.props.page.toUpperCase()}</div> */}
         </div>
-        <Markdown className="Markdown" source = {this.state.markdown}/> 
+        <div style={{opacity: selected ? 1 : 0}} className="MarkdownHolder">
+          <Markdown className="Markdown" source = {this.state.markdown}/> 
+        </div>
       </div>
     );
   }
