@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2877cfe9.chunk.css",
+    "main.js": "/static/js/main.9aaf9f2b.chunk.js",
+    "main.js.map": "/static/js/main.9aaf9f2b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3e002378.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3e002378.js.map",
+    "static/js/2.a5e6531e.chunk.js": "/static/js/2.a5e6531e.chunk.js",
+    "static/js/2.a5e6531e.chunk.js.map": "/static/js/2.a5e6531e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b83ed84281a580f1ded9cc0b989a1181.js": "/precache-manifest.b83ed84281a580f1ded9cc0b989a1181.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2877cfe9.chunk.css.map": "/static/css/main.2877cfe9.chunk.css.map",
+    "static/js/2.a5e6531e.chunk.js.LICENSE.txt": "/static/js/2.a5e6531e.chunk.js.LICENSE.txt",
+    "static/media/email-logo.png": "/static/media/email-logo.9b5a9fed.png",
+    "static/media/github-logo.png": "/static/media/github-logo.947bb3bc.png",
+    "static/media/green-triangle.png": "/static/media/green-triangle.29c6a9f7.png",
+    "static/media/itchio-logo.png": "/static/media/itchio-logo.a42eea8e.png",
+    "static/media/linkedin-logo.png": "/static/media/linkedin-logo.4a2f2836.png",
+    "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg",
+    "static/media/red-triangle.png": "/static/media/red-triangle.89d4a886.png",
+    "static/media/resume-logo.png": "/static/media/resume-logo.27bd2e2c.png",
+    "static/media/yodahe-green.png": "/static/media/yodahe-green.e549c5d4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3e002378.js",
+    "static/js/2.a5e6531e.chunk.js",
+    "static/css/main.2877cfe9.chunk.css",
+    "static/js/main.9aaf9f2b.chunk.js"
+  ]
+}

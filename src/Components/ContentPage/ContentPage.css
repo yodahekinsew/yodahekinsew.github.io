@@ -87,6 +87,19 @@
     opacity: .5;
 }
 
+.Markdown > h4 {
+    font-size: max(12.5px, min(25px, 5vw));
+    color: var(--light-color);
+}
+
 .Markdown > p {
     font-size: max(10px, min(20px, 5vw));
+    padding-left: 1.5vw;
+    margin-left: 1vw;
+
+    box-sizing: content-box;
+    /* box-sizing: border-box; */
+    /* border-top: .5vh solid var(--dark-accent-color); */
+    /* border-bottom: .5vh solid var(--dark-accent-color); */
+    border-left: min(5px, 1vw) solid var(--dark-accent-color);
 }
