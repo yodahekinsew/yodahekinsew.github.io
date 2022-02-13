@@ -1,0 +1,98 @@
+@use "responsive";
+
+#intro-text {
+  position: absolute;
+  width: 100%;
+  top: 5%;
+  left: 5%;
+  //   transform: translate(calc(-37.5%), 0);
+
+  p {
+    // NOTE: Need to make sure total line height (including margin top)
+    // is larger than the caret height otherwise things will break
+    color: white;
+    font-family: baloo;
+    font-size: 5vmin; //28px;
+    margin-top: 2.5vmin;
+    // text-shadow: 0 7px 5px rgb(0 0 0 / 25%);
+    filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.25));
+
+    &.tab {
+      margin-left: 10vmin;
+    }
+
+    // @include responsive.md {
+    //   // font-size: 36px;
+    //   margin-top: 18px;
+    // }
+
+    // @include responsive.xl {
+    //   // font-size: 48px;
+    //   margin-top: 24px;
+    // }
+  }
+}
+
+.typewriter {
+  display: flex;
+  align-items: center;
+  height: 10vmin;
+
+  img {
+    display: none;
+    position: absolute;
+    left: 2.5vmin;
+    filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.25));
+    width: 5vmin;
+    // @include responsive.md {
+    //   height: 25px;
+    // }
+    // @include responsive.lg {
+    //   height: 30px;
+    // }
+  }
+  .caret {
+    display: none;
+  }
+
+  &.typing {
+    .caret {
+      display: inline-block;
+      height: 40px;
+      width: 10px;
+      border-radius: 10px;
+      margin-left: 10px;
+      transform: translate(0, 3px);
+      filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.25));
+
+      animation: blink-caret 1s step-end infinite;
+      @keyframes blink-caret {
+        from,
+        to {
+          background-color: white;
+        }
+        50% {
+          background-color: transparent;
+        }
+      }
+
+      @include responsive.md {
+        height: 50px;
+        width: 12.5px;
+      }
+      @include responsive.lg {
+        height: 60px;
+        width: 15px;
+        transform: translate(0, 6px);
+      }
+    }
+  }
+
+  // @include responsive.md {
+  //   height: 54px;
+  // }
+
+  // @include responsive.xl {
+  //   height: 64px;
+  // }
+}

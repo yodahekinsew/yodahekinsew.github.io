@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="fullpage.css" /> -->
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="view">
+        <div id="starting-page">
+            <!-- <img id="me" class="mobile-only" src="./Static/Mobile/YodaheNoPhone.svg"
+            style="position: absolute; z-index: 1; height: 50vh;  top: 35%; left: -2vh;"> -->
+            <div class="parallax-pan" data-parallax-strength="-.025">
+                <div class="parallax-scroll" data-parallax-strength="-5">
+                    <div id="starting-background"><img src="./Static/Desktop/Room.svg"></div>
+                </div>
+            </div>
+            <div class="parallax-pan" data-parallax-strength=".0125">
+                <div class="parallax-scroll" data-parallax-strength="5">
+                    <div style="position: absolute; height: 100vh; width: 100vw;">
+                        <img id="yodahe" src="./Static/Desktop/Yodahe.svg"
+                            style="position: absolute; height: 88vh;  top: 25%; left: 50%; transform: translate(-25%, 0);">
+                    </div>
+                </div>
+            </div>
+            <div id="intro-text">
+                <div class="typewriter">
+                    <p>Hi, I'm Yodahe!</p>
+                    <div class="caret"></div>
+                </div>
+                <div class="typewriter">
+                    <p class="tab">A game developer</p>
+                    <img src="./Static/Icons/Return Symbol.svg" height="25" width="25">
+                    <div class="caret"></div>
+                </div>
+                <div class="typewriter">
+                    <p class="tab">A web developer</p>
+                    <img src="./Static/Icons/Return Symbol.svg" height="25" width="25">
+                    <div class="caret"></div>
+                </div>
+                <div class="typewriter">
+                    <p class="tab">An app developer</p>
+                    <img src="./Static/Icons/Return Symbol.svg" height="25" width="25">
+                    <div class="caret"></div>
+                </div>
+                <div class="typewriter">
+                    <p class="tab">A literally anything developer</p>
+                    <img src="./Static/Icons/Return Symbol.svg" height="25" width="25">
+                    <div class="caret"></div>
+                </div>
+                <div class="typewriter">
+                    <p class="tab">. . .</p>
+                    <img src="./Static/Icons/Return Symbol.svg" height="25" width="25">
+                    <div class="caret"></div>
+                </div>
+                <div class="typewriter">
+                    <p class="tab">I just love to code :)</p>
+                    <img src="./Static/Icons/Return Symbol.svg" height="25" width="25">
+                    <div class="caret"></div>
+                </div>
+            </div>
+            <div id="scroll-down">
+                <div id="scroll-down-icon" style="height: 50px; width: 50px;">
+                    <img src="./Static/Icons/Chevron Down.svg" height="50px" width="50px">
+                </div>
+            </div>
+        </div>
+
+        <!-- Extra space betwene landing page and projects -->
+        <div id="spacer"></div>
+
+        <div id="project-page">
+            <!-- <div stle="height: 100%; width: 100%; position:sticky;" -->
+            <!-- TODO: The current issue regarding positioning these svgs is that they are only ever based on the
+            viewport height. Which would be fine, except that at a certain point the device's size switches from 
+            being viewport height dependent to being viewport width dependent when the aspect ratio gets too
+            squarish. I could fix this by manually going through all of the images and adding a min() 
+            calculation to their height styles, but that would become a headache. It would be better if I could
+            define some abstraction like "--device-size" and then use that property to define the sizes of all
+            the other svgs. When the screen gets squarish (before becoming a tablet) I can change that property
+            from "1vh" to something like ".56vw" and everything should change with it naturally -->
+            <div id="desk" class="desktop-only">
+                <div id="desktop"></div>
+                <div id="keyboard-holder">
+                    <img src="./Static/Desktop/Keyboard.svg" style="height: 100%; transform: translate(-85%, -5%);">
+                </div>
+                <div id="mouse-holder">
+                    <img id="mouse" src="./Static/Desktop/Mouse.svg"
+                        style="height: 100%; transform: rotate(-10deg) translate(-50%, 0);">
+                </div>
+                <img src="./Static/Desktop/MonitorStand.svg"
+                    style="position: absolute; height: 9.3vh; top: calc(5% + var(--device-height) + var(--device-border-bottom)); left: 50%; transform: translate(-50%, 0);">
+            </div>
+            <div id="project-page-underlay" class="device">
+                <div id="desktop-shadow" class="desktop-only"
+                    style="position:absolute; height: 100%; width: 100%; left: 50%; bottom: 0%; transform: translate(-50%, 0); background: blue;">
+                </div>
+                <img class="mobile-only" src="./Static/Mobile/Wrist.svg"
+                    style="position: absolute; height: 100vh;  top: 100%; left: 0; transform: translate(calc(0vh + var(--device-border)), calc(-25vh - var(--device-border-bottom)));">
+                <img class="tablet-only" src="./Static/Tablet/TopLeftHand.svg"
+                    style="position: absolute; height: 99vh;  top: 0; left: 0; transform: translate(calc(-55% - var(--device-border)), calc(-6.5% - var(--device-border)));">
+                <img class="tablet-only" src="./Static/Tablet/TopRightHand.svg"
+                    style="position: absolute; height: 81vh;  bottom: 0; right: 0; transform: translate(calc(56% + var(--device-border)), calc(100% - 15vh));">
+            </div>
+            <div id="project-page-content" class="device">
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide">
+                            <div class="section-header">About Me</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide" style="background: orange;">
+                            <div class="section-header">Volver</div>
+                        </div>
+                        <div class="slide" style="background: orchid;"></div>
+                        <div class="slide"></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide">
+                            <div class="section-header">Movementum</div>
+                        </div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide">
+                            <div class="section-header">Hoppor</div>
+                        </div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide">
+                            <div class="section-header">Tilted Tiles</div>
+                        </div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide">
+                            <div class="section-header">YoJo Studio</div>
+                        </div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide">
+                            <div class="section-header">Web Portfolios</div>
+                        </div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide">
+                            <div class="section-header">Witchlings</div>
+                        </div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="slide"
+                            style="overflow: none; position: relative; background: linear-gradient(to bottom, var(--blue) 50%, var(--green) 50%);">
+                            <div class="section-header">Thanks for looking at my work!</div>
+                            <img src="./Static/YodaheWaving.svg"
+                                style="position: absolute; bottom: 0; left: 50%; height: 150%; transform: translate(-50%, 50%);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="project-page-overlay" class="device">
+                <img class="mobile-only" src="./Static/Mobile/Thumb.svg"
+                    style="position: absolute; z-index: 1; height: 45vh;  top: 35%; right: 0; transform: translate(calc(13.15vh + var(--device-border)), 0);">
+                <img class="mobile-only" src="./Static/Mobile/Fingers.svg"
+                    style="position: absolute; z-index: 1; height: 45vh;  top: 25%; left: 0; transform: translate(calc(-13.15vh - var(--device-border)), 0);">
+                <img class="tablet-only" src="./Static/Tablet/TopLeftFingers.svg"
+                    style="position: absolute; z-index: 1; height: 28vh;  top: 0; left: 0; transform: translate(calc(-21% - var(--device-border)), calc(-23.6% - var(--device-border)));">
+                <img class="tablet-only" src="./Static/Tablet/TopRightFingers.svg"
+                    style="position: absolute; z-index: 1; height: 21.3vh;  bottom: 0; right: 0; transform: translate(calc(70% + var(--device-border)), calc(-15vh + 33%));">
+                <!-- 
+            <img class="tablet-only" src="./Static/Tablet/TopLeftHandCutout.svg"
+                <!-- style="position: absolute; z-index: 1; height: 105vh;  top: 0%; left: 0; transform: translate(calc(-33vh + var(--device-border)), calc(-6.9vh - var(--device-border)));"> -->
+                <!-- <img class="tablet-only" src="./Static/Tablet/HoldingTablet.svg"
+                style="position: absolute; z-index: 0; height: calc(125vh + 30px + 55px);  top: 0%; left: 0; transform: translate(calc(-33vh + var(--device-border)), calc(-6.9vh - var(--device-border)));"> -->
+                <div id="navigation">
+                    <div id="navigation-track">
+                        <div id="navigation-thumb"></div>
+                    </div>
+                </div>
+                <div style="height: 100%; width: 100%; border-radius: inherit; overflow: hidden; position: relative;">
+                    <img id="cursor" class="desktop-only" src="./Static/Desktop/Cursor.svg"
+                        style="position: absolute; height: 5vh;  top: 50%; left: 50%; transform: translate(0px, 0px);">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./math.js"></script>
+    <script src="./smoothScroll.js"></script>
+    <script src="./bundle.js"></script>
+    <!-- <script src="./main.js"></script> -->
+    <!-- <script src="./typewriter.js"></script> -->
+</body>
+
+</html>
