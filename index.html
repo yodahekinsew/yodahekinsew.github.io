@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" type="text/css" href="fullpage.css" /> -->
+    <link rel="preload" as="font" href="/baloo/Baloo-Regular.ttf" type="font/ttf" crossorigin="anonymous">
     <link rel="stylesheet" href="./main.css">
     <title>Document</title>
 </head>
@@ -17,7 +18,12 @@
             style="position: absolute; z-index: 1; height: 50vh;  top: 35%; left: -2vh;"> -->
             <div class="parallax-pan" data-parallax-strength="-.025">
                 <div class="parallax-scroll" data-parallax-strength="-5">
-                    <div id="starting-background"><img src="./Static/Desktop/Room.svg"></div>
+                    <div id="starting-background">
+                        <img src="./Static/Desktop/Room.svg">
+                        <!-- <div
+                            style="position: absolute; height: 100%; width: 100%; background: linear-gradient(to right, var(--purple) 0, rgba(var(--purple-rgb), 0.5) 25%, rgba(var(--purple-rgb), 0.5) 75%, var(--purple) 100%)">
+                        </div> -->
+                    </div>
                 </div>
             </div>
             <div class="parallax-pan" data-parallax-strength=".0125">
@@ -59,7 +65,7 @@
                     <div class="caret"></div>
                 </div>
                 <div class="typewriter">
-                    <p class="tab">I just love to code :)</p>
+                    <p class="tab">I just love to code :)&nbsp;</p>
                     <img src="./Static/Icons/Return Symbol.svg" height="25" width="25">
                     <div class="caret"></div>
                 </div>
@@ -84,16 +90,16 @@
             define some abstraction like "--device-size" and then use that property to define the sizes of all
             the other svgs. When the screen gets squarish (before becoming a tablet) I can change that property
             from "1vh" to something like ".56vw" and everything should change with it naturally -->
-            <div id="desk" class="desktop-only">
+            <div id="desk">
                 <div id="desktop"></div>
-                <div id="keyboard-holder">
+                <div id="keyboard-holder" class="desktop-only">
                     <img src="./Static/Desktop/Keyboard.svg" style="height: 100%; transform: translate(-85%, -5%);">
                 </div>
-                <div id="mouse-holder">
+                <div id="mouse-holder" class="desktop-only">
                     <img id="mouse" src="./Static/Desktop/Mouse.svg"
                         style="height: 100%; transform: rotate(-10deg) translate(-50%, 0);">
                 </div>
-                <img src="./Static/Desktop/MonitorStand.svg"
+                <img src="./Static/Desktop/MonitorStand.svg" class="desktop-only"
                     style="position: absolute; height: 9.3vh; top: calc(5% + var(--device-height) + var(--device-border-bottom)); left: 50%; transform: translate(-50%, 0);">
             </div>
             <div id="project-page-underlay" class="device">
@@ -108,88 +114,286 @@
                     style="position: absolute; height: 81vh;  bottom: 0; right: 0; transform: translate(calc(56% + var(--device-border)), calc(100% - 15vh));">
             </div>
             <div id="project-page-content" class="device">
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide">
-                            <div class="section-header">About Me</div>
+                <!-- THIS IS THE MORE SIMPLE LONGFORM VERSION OF THE WEBSITE -->
+                <div id="content-holder" style="position:absolute; top: 10%; width: 85%; margin: 3.75% 7.5%;">
+                    <div class="section">
+                        <div class="section-header">About Me</div>
+                        <div class="section-subheader">Yodahe Quick Facts</div>
+                        <div class="card">
+                            <div class="collapsible-flex-row">
+                                <div style=" flex: 1 0 0;">
+                                    <img style="width: 100%;" src="./Static/YodaheHeadFront.svg">
+                                </div>
+                                <div style=" flex: 3 0 0;">
+                                    <p class="big-text" style="margin-left: 5%; width: 90%">I like to make
+                                        things that people love to use and <span style="font-style: italic;">code</span>
+                                        is the best tool for me to do that
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Education</p>
+                            <p style="color: var(--dark-grey); text-align: right;">Massachusetts Institute of
+                                Technology
+                            </p>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>B.S. in Computer Science</p>
+                                <p style="text-align: right;">June 2021</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>M.E. in Graphics and HCI </p>
+                                <p style="text-align: right;">June 2022</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Experience</p>
+                            <p style="color: var(--dark-grey);">
+                                I currently work as a Software Engineer at Google, but here's some of the work I've
+                                done
+                                in the past
+                            </p>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>Google SWE Intern </p>
+                                <p style="text-align: right;">Summer 2021</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>Google SWE Intern </p>
+                                <p style="text-align: right;">Summer 2020</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>Nasdaq Full Stack Intern </p>
+                                <p style="text-align: right;">Winter 2019</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>Google SWE Intern </p>
+                                <p style="text-align: right;">Summer 2019</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>Intel SWE Intern </p>
+                                <p style="text-align: right;">Summer 2018</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Technologies</p>
+                            <div style="display: flex; flex-wrap: wrap;">
+                                <p style="width: 33%; text-align: center;">Unity</p>
+                                <p style="width: 33%; text-align: center;">Blender</p>
+                                <p style="width: 33%; text-align: center;">Shaders</p>
+                                <p style="width: 33%; text-align: center;">Audacity</p>
+                                <p style="width: 33%; text-align: center;">HTML</p>
+                                <p style="width: 33%; text-align: center;">JS</p>
+                                <p style="width: 33%; text-align: center;">CSS</p>
+                                <p style="width: 33%; text-align: center;">Three.js</p>
+                                <p style="width: 33%; text-align: center;">ReactJS</p>
+                                <p style="width: 33%; text-align: center;">SASS</p>
+                                <p style="width: 33%; text-align: center;">Socket.io</p>
+                                <p style="width: 33%; text-align: center;">Illustrator</p>
+                                <p style="width: 33%; text-align: center;">After Effects</p>
+                                <p style="width: 33%; text-align: center;">Lottie</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">What I'm Working On</p>
+                            <p>A puzzle game à la 2048...</p>
+                            <p>A typing .io game...</p>
+                            <p>A chat room for learning languages...</p>
+                            <p>A visual wiki of Hawkeye's arrows...</p>
                         </div>
                     </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide" style="background: orange;">
-                            <div class="section-header">Volver</div>
+                    <div class="section">
+                        <div class="section-header">YoJo Studio Games</div>
+                        <div class="section-subheader">Mobile Games</div>
+                        <div class="card">
+                            <p> A series of hypercasual games, built using the Unity engine and published on the App
+                                Store. As my
+                                first ever published games, these mean a lot to me. </p>
                         </div>
-                        <div class="slide" style="background: orchid;"></div>
-                        <div class="slide"></div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide">
-                            <div class="section-header">Movementum</div>
+                        <div class="card">
+                            <p class="big-text">The Games</p>
+                            <div style="display: flex; justify-content: space-between;">
+                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1 0 0;">
+                                    <div
+                                        style="background: var(--white); padding-bottom: min(100%, 100px); width: min(100%, 100px); border-radius: 1em;">
+                                    </div>
+                                    <p class="small-text">Volver</p>
+                                </div>
+                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1 0 0;">
+                                    <div
+                                        style="background: var(--white); padding-bottom: min(100%, 100px); width: min(100%, 100px); border-radius: 1em;">
+                                    </div>
+                                    <p class="small-text">Movementum</p>
+                                </div>
+                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1 0 0;">
+                                    <div
+                                        style="background: var(--white); padding-bottom: min(100%, 100px); width: min(100%, 100px); border-radius: 1em;">
+                                    </div>
+                                    <p class="small-text">Hoppor</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="slide"></div>
-                        <div class="slide"></div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide">
-                            <div class="section-header">Hoppor</div>
+                        <div class="card">
+                            <p class="big-text">Cool Things I Learned</p>
+                            <p class="bulleted">How to set up endless levels</p>
+                            <p class="bulleted">2D hard lighting</p>
+                            <p class="bulleted">Simple shaders</p>
+                            <p class="bulleted">Highscore Leaderboard (IOS GameCenter Integration)</p>
+                            <p class="bulleted">Unity Ads Integration</p>
                         </div>
-                        <div class="slide"></div>
-                        <div class="slide"></div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide">
-                            <div class="section-header">Tilted Tiles</div>
+                        <div class="card">
+                            <p class="big-text">Technologies I Used</p>
+                            <p class="bulleted">Unity Game Engine</p>
+                            <p class="bulleted">Xcode</p>
+                            <p class="bulleted">DOTween Tweening Engine</p>
+                            <p class="bulleted">Logic Pro</p>
+                            <p class="bulleted">Audacity</p>
+                            <p class="bulleted">Adobe Illustrator</p>
                         </div>
-                        <div class="slide"></div>
-                        <div class="slide"></div>
                     </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide">
-                            <div class="section-header">YoJo Studio</div>
+                    <div class="section">
+                        <div class="section-header">Tilted Tiles</div>
+                        <div class="section-subheader">Web Game</div>
+                        <div class="card">
+                            <p>
+                                A puzzle game made using Unity, focused around increasingly complex movement
+                                puzzles. I
+                                grew up playing games on CoolMathGames.com and it's cool that I have my own game on
+                                there now!
+                            </p>
                         </div>
-                        <div class="slide"></div>
-                        <div class="slide"></div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide">
-                            <div class="section-header">Web Portfolios</div>
+                        <div class="card">
+                            <p class="big-text">Cool Things I Learned</p>
+                            <p class="bulleted">Puzzle design</p>
+                            <p class="bulleted">3D transformations</p>
+                            <p class="bulleted">Sound FX</p>
+                            <p class="bulleted">Color palette generation</p>
+                            <p class="bulleted">Working with online publisher</p>
                         </div>
-                        <div class="slide"></div>
-                        <div class="slide"></div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide">
-                            <div class="section-header">Witchlings</div>
+                        <div class="card">
+                            <p class="big-text">Technologies I Used</p>
+                            <p class="bulleted">Unity Game Engine</p>
+                            <p class="bulleted">DOTween Tweening Engine</p>
+                            <p class="bulleted">Logic Pro</p>
+                            <p class="bulleted">Audacity</p>
                         </div>
-                        <div class="slide"></div>
-                        <div class="slide"></div>
                     </div>
-                </div>
-                <div class="section">
-                    <div class="section-content">
-                        <div class="slide"
-                            style="overflow: none; position: relative; background: linear-gradient(to bottom, var(--blue) 50%, var(--green) 50%);">
-                            <div class="section-header">Thanks for looking at my work!</div>
-                            <img src="./Static/YodaheWaving.svg"
-                                style="position: absolute; bottom: 0; left: 50%; height: 150%; transform: translate(-50%, 50%);">
+                    <div class="section">
+                        <div class="section-header">Web Portfolios</div>
+                        <div class="section-subheader">Websites</div>
+                        <div class="card">
+                            <p>
+                                A series of websites I've designed and developed to be clear presentations of an
+                                entire
+                                project portfolio. Making these websites helped improve my own skills with HTML,
+                                CSS,
+                                and Javascript.
+                            </p>
+                        </div>
+                        <div class="card">
+                            <!-- Picture 1: Caleb's Portfolio Site -->
+                            <div
+                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                            </div>
+                            <!-- Picture 2: Faith's Portfolio site -->
+                            <div
+                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Cool Things I Learned</p>
+                            <p class="bulleted">CSS transitions</p>
+                            <p class="bulleted">Lottie animations</p>
+                            <p class="bulleted">HTML Canvas</p>
+                            <p class="bulleted">Working with lots of images</p>
+                            <p class="bulleted">Improving page efficiency and load times</p>
+                            <p class="bulleted">Working with online publisher</p>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Technologies I Used</p>
+                            <p class="bulleted">HTML, JS, and CSS</p>
+                            <p class="bulleted">SASS</p>
+                            <p class="bulleted">YouTube Player API</p>
+                            <p class="bulleted">Browserify and Uglify</p>
+                            <p class="bulleted">Lottie</p>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section-header">YoJo Studio</div>
+                        <div class="section-subheader">Websites</div>
+                        <div class="card">
+                            <p>
+                                A game portfolio website for my small mobile studio &mdash; YoJo Studio.
+                            </p>
+                        </div>
+                        <div class="card">
+                            <!-- Picture 1: Start screen with phone peeking out -->
+                            <div
+                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                            </div>
+                            <!-- Picture 2: One of the app screens -->
+                            <div
+                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Cool Things I Learned</p>
+                            <p class="bulleted">Three.js</p>
+                            <p class="bulleted">Texturing with videos</p>
+                            <p class="bulleted">Asset compression</p>
+                            <p class="bulleted">Longform page design</p>
+                            <p class="bulleted">Implementing scroll-based animations</p>
+                            <p class="bulleted">CSS animations</p>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Technologies I Used</p>
+                            <p class="bulleted">HTML, JS, and CSS</p>
+                            <p class="bulleted">Three.js</p>
+                            <p class="bulleted">Browserify and Uglify</p>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section-header">Witchlings</div>
+                        <div class="section-subheader">Websites</div>
+                        <div class="card">
+                            <p>
+                                An interactive quiz website made for Claribel Ortega's new book series - Witchlings.
+                            </p>
+                        </div>
+                        <div class="card">
+                            <!-- Picture 1: Witchlings start screen -->
+                            <div
+                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                            </div>
+                            <!-- Picture 2: Goose house cards screen -->
+                            <div
+                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Cool Things I Learned</p>
+                            <p class="bulleted">Interactive design</p>
+                            <p class="bulleted">CSS transform manipulation</p>
+                            <p class="bulleted">Custom css classes</p>
+                            <p class="bulleted">Fetching JSON information</p>
+                            <p class="bulleted">Working with lots of images</p>
+                        </div>
+                        <div class="card">
+                            <p class="big-text">Technologies I Used</p>
+                            <p class="bulleted">HTML, JS, and CSS</p>
+                            <p class="bulleted">Adobe Photoshop</p>
+                            <p class="bulleted">Adobe Illustrator</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="project-page-overlay" class="device">
+                <div id="address-bar"
+                    style="width: 100%; height: 10%; background: var(--light-grey); position: relative; box-shadow: 0 5px 0 rgb(0 0 0 / 25%);">
+                    <div id="url-holder"
+                        style="width: 85%; height: 60%; top: 20%; left: 7.5%; background: var(--white); position: absolute; border-radius: 10px; padding: 0 5%;box-sizing: border-box; display: flex; justify-content: start; align-items: center;">
+                        <div id="url">https://yodahe.com/<span id="url-page">about-me</span></div>
+                    </div>
+                </div>
                 <img class="mobile-only" src="./Static/Mobile/Thumb.svg"
                     style="position: absolute; z-index: 1; height: 45vh;  top: 35%; right: 0; transform: translate(calc(13.15vh + var(--device-border)), 0);">
                 <img class="mobile-only" src="./Static/Mobile/Fingers.svg"
@@ -198,19 +402,14 @@
                     style="position: absolute; z-index: 1; height: 28vh;  top: 0; left: 0; transform: translate(calc(-21% - var(--device-border)), calc(-23.6% - var(--device-border)));">
                 <img class="tablet-only" src="./Static/Tablet/TopRightFingers.svg"
                     style="position: absolute; z-index: 1; height: 21.3vh;  bottom: 0; right: 0; transform: translate(calc(70% + var(--device-border)), calc(-15vh + 33%));">
-                <!-- 
-            <img class="tablet-only" src="./Static/Tablet/TopLeftHandCutout.svg"
-                <!-- style="position: absolute; z-index: 1; height: 105vh;  top: 0%; left: 0; transform: translate(calc(-33vh + var(--device-border)), calc(-6.9vh - var(--device-border)));"> -->
-                <!-- <img class="tablet-only" src="./Static/Tablet/HoldingTablet.svg"
-                style="position: absolute; z-index: 0; height: calc(125vh + 30px + 55px);  top: 0%; left: 0; transform: translate(calc(-33vh + var(--device-border)), calc(-6.9vh - var(--device-border)));"> -->
                 <div id="navigation">
                     <div id="navigation-track">
                         <div id="navigation-thumb"></div>
                     </div>
                 </div>
-                <div style="height: 100%; width: 100%; border-radius: inherit; overflow: hidden; position: relative;">
-                    <img id="cursor" class="desktop-only" src="./Static/Desktop/Cursor.svg"
-                        style="position: absolute; height: 5vh;  top: 50%; left: 50%; transform: translate(0px, 0px);">
+                <div
+                    style="height: 100%; width: 100%; border-radius: inherit; overflow: hidden; position: fixed; top: 0; left: 0;">
+                    <img id="cursor" class="desktop-only" src="./Static/Desktop/Cursor.svg">
                 </div>
             </div>
         </div>
@@ -220,6 +419,7 @@
     <script src="./math.js"></script>
     <script src="./smoothScroll.js"></script>
     <script src="./bundle.js"></script>
+    <script src="./addressbar.js"></script>
     <!-- <script src="./main.js"></script> -->
     <!-- <script src="./typewriter.js"></script> -->
 </body>

@@ -59,28 +59,29 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Auto scroll to the closest project page section when user
   // stops scrolling on the project page content div
-  const autoScrollToProjectPageSection = debounce((e) => {
-    projectPageContent.removeEventListener(
-      "scroll",
-      autoScrollToProjectPageSection
-    );
-    console.log("auto scrolling to next project page section");
-    const scrollTargetY =
-      Math.round(e.target.scrollTop / e.target.offsetHeight) *
-      e.target.offsetHeight;
-    const scrollDuration =
-      (3 * Math.abs(e.target.scrollTop - scrollTargetY)) / window.innerHeight;
-    smoothScrollTo(0, scrollTargetY, scrollDuration, projectPageContent, () => {
-      setTimeout(() => {
-        projectPageContent.addEventListener(
-          "scroll",
-          autoScrollToProjectPageSection
-        );
-      }, 250);
-    });
-  }, 1000);
-  projectPageContent.addEventListener("scroll", autoScrollToProjectPageSection);
+  // const autoScrollToProjectPageSection = debounce((e) => {
+  //   projectPageContent.removeEventListener(
+  //     "scroll",
+  //     autoScrollToProjectPageSection
+  //   );
+  //   console.log("auto scrolling to next project page section");
+  //   const scrollTargetY =
+  //     Math.round(e.target.scrollTop / e.target.offsetHeight) *
+  //     e.target.offsetHeight;
+  //   const scrollDuration =
+  //     (3 * Math.abs(e.target.scrollTop - scrollTargetY)) / window.innerHeight;
+  //   smoothScrollTo(0, scrollTargetY, scrollDuration, projectPageContent, () => {
+  //     setTimeout(() => {
+  //       projectPageContent.addEventListener(
+  //         "scroll",
+  //         autoScrollToProjectPageSection
+  //       );
+  //     }, 250);
+  //   });
+  // }, 1000);
+  // projectPageContent.addEventListener("scroll", autoScrollToProjectPageSection);
 
+  // === Set up navigation ===
   navigationTrack.addEventListener("mousedown", (e) => {
     updateNavigationTrack(e);
     const mouseMoveFn = throttle(updateNavigationTrack, 16);
@@ -107,49 +108,49 @@ window.addEventListener("DOMContentLoaded", () => {
   // === Set up slides ===
   // Auto scroll to the closest project slide when user
   // stops scrolling horizontally on a specific project page
-  const autoScrollToProjectSlide = debounce((e) => {
-    console.log("scrolling project slide!");
-    e.target.removeEventListener("scroll", autoScrollToProjectSlide);
-    const scrollTargetX =
-      Math.round(e.target.scrollLeft / e.target.offsetWidth) *
-      e.target.offsetWidth;
-    const scrollDuration =
-      (3 * Math.abs(e.target.scrollLeft - scrollTargetX)) / window.innerWidth;
-    smoothScrollTo(scrollTargetX, 0, scrollDuration, e.target, () => {
-      setTimeout(() => {
-        e.target.addEventListener("scroll", autoScrollToProjectSlide);
-      }, 250);
-    });
-  }, 1000);
-  const allProjectSections = projectPageContent.children;
-  for (let i = 0; i < allProjectSections.length; i++) {
-    const project = allProjectSections[i];
-    const projectContent = project.firstElementChild;
-    const projectSlides = project.getElementsByClassName("slide");
-    if (projectSlides.length <= 1) continue;
-    const slidesNavigation = document.createElement("div");
-    slidesNavigation.className = "slides-navigation";
-    let navDots = [];
-    for (let j = 0; j < projectSlides.length; j++) {
-      const navDot = document.createElement("div");
-      navDot.className = j == 0 ? "nav-dot active" : "nav-dot";
-      slidesNavigation.appendChild(navDot);
-      navDots.push(navDot);
-      navDot.onclick = () => {
-        projectContent.removeEventListener("scroll", autoScrollToProjectSlide);
-        autoScrollToProjectSlide.cancel();
-        navDots.forEach((dot) => dot.classList.remove("active"));
-        navDot.classList.add("active");
-        smoothScrollTo(j * project.offsetWidth, 0, 1, projectContent, () => {
-          setTimeout(() => {
-            projectContent.addEventListener("scroll", autoScrollToProjectSlide);
-          }, 250);
-        });
-      };
-    }
-    project.appendChild(slidesNavigation);
-    projectContent.addEventListener("scroll", autoScrollToProjectSlide);
-  }
+  // const autoScrollToProjectSlide = debounce((e) => {
+  //   console.log("scrolling project slide!");
+  //   e.target.removeEventListener("scroll", autoScrollToProjectSlide);
+  //   const scrollTargetX =
+  //     Math.round(e.target.scrollLeft / e.target.offsetWidth) *
+  //     e.target.offsetWidth;
+  //   const scrollDuration =
+  //     (3 * Math.abs(e.target.scrollLeft - scrollTargetX)) / window.innerWidth;
+  //   smoothScrollTo(scrollTargetX, 0, scrollDuration, e.target, () => {
+  //     setTimeout(() => {
+  //       e.target.addEventListener("scroll", autoScrollToProjectSlide);
+  //     }, 250);
+  //   });
+  // }, 1000);
+  // const allProjectSections = projectPageContent.children;
+  // for (let i = 0; i < allProjectSections.length; i++) {
+  //   const project = allProjectSections[i];
+  //   const projectContent = project.firstElementChild;
+  //   const projectSlides = project.getElementsByClassName("slide");
+  //   if (projectSlides.length <= 1) continue;
+  //   const slidesNavigation = document.createElement("div");
+  //   slidesNavigation.className = "slides-navigation";
+  //   let navDots = [];
+  //   for (let j = 0; j < projectSlides.length; j++) {
+  //     const navDot = document.createElement("div");
+  //     navDot.className = j == 0 ? "nav-dot active" : "nav-dot";
+  //     slidesNavigation.appendChild(navDot);
+  //     navDots.push(navDot);
+  //     navDot.onclick = () => {
+  //       projectContent.removeEventListener("scroll", autoScrollToProjectSlide);
+  //       autoScrollToProjectSlide.cancel();
+  //       navDots.forEach((dot) => dot.classList.remove("active"));
+  //       navDot.classList.add("active");
+  //       smoothScrollTo(j * project.offsetWidth, 0, 1, projectContent, () => {
+  //         setTimeout(() => {
+  //           projectContent.addEventListener("scroll", autoScrollToProjectSlide);
+  //         }, 250);
+  //       });
+  //     };
+  //   }
+  //   project.appendChild(slidesNavigation);
+  //   projectContent.addEventListener("scroll", autoScrollToProjectSlide);
+  // }
 
   // === Update Background Color ===
   let usingTopBackground = true;
@@ -188,8 +189,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // === Parallax Panning ===
   let parallaxPanningElements = document.getElementsByClassName("parallax-pan");
-  let mouseHolderElement = document.getElementById("mouse-holder");
-  let cursorElement = document.getElementById("cursor");
+  let mouseHolderElement = document.getElementById("mouse-holder"),
+    cursorElement = document.getElementById("cursor");
+  let mouseTransform = {
+      current: { x: 0, y: 0 },
+      target: { x: 0, y: 0 },
+      rotation: 0,
+      targetRotation: 0,
+    },
+    cursorTransform = {
+      current: { x: 0, y: 0 },
+      target: { x: 0, y: 0 },
+    };
+  let mouseTarget = { x: 0, y: 0 };
+  let cusorTarget = { x: 0, y: 0 };
   document.addEventListener(
     "mousemove",
     throttle((e) => {
@@ -216,20 +229,63 @@ window.addEventListener("DOMContentLoaded", () => {
         e.clientY > screenRect.y &&
         e.clientY < screenRect.y + screenRect.height
       ) {
-        console.log(
-          e.clientX - screenRect.x - screenRect.width / 2,
-          e.clientY - screenRect.y - screenRect.height / 2
-        );
         (mouseX = e.clientX - screenRect.x - screenRect.width / 2),
           (mouseY = e.clientY - screenRect.y - screenRect.height / 2);
-        mouseHolderElement.style.transform = `translate(
-          ${mouseX * 0.2}px, ${mouseY * 0.125}px)`;
+        // mouseHolderElement.style.transform = `translate(
+        //   ${mouseX * 0.2}px, ${mouseY * 0.125}px)`;
         // Moving Cursor
-        cursorElement.style.transform = `translate(
-              ${mouseX}px, ${mouseY}px)`;
+        // cursorElement.style.transform = `translate(
+        //       ${mouseX}px, ${mouseY}px)`;
+        // Set the mouse and cursor targets
+        // Used to animate in mouseCursorAnimation()
+        mouseTransform.target.x = mouseX * 0.2;
+        mouseTransform.target.y = mouseY * 0.125;
+        mouseTransform.targetRotation = mouseX * 0.025 + 5;
+        cursorTransform.target.x = mouseX;
+        cursorTransform.target.y = mouseY;
       }
     }, 16)
   );
+
+  // Mouse and Cursor Animation Loop
+  function mouseCursorAnimation() {
+    setTimeout(mouseCursorAnimation, 16);
+
+    // Moving mouse
+    mouseTransform.current.x = Math.lerp(
+      mouseTransform.current.x,
+      mouseTransform.target.x,
+      0.1
+    );
+    mouseTransform.current.y = Math.lerp(
+      mouseTransform.current.y,
+      mouseTransform.target.y,
+      0.1
+    );
+    mouseTransform.rotation = Math.lerp(
+      mouseTransform.rotation,
+      mouseTransform.targetRotation,
+      0.1
+    );
+    mouseHolderElement.style.transform = `translate(
+      ${mouseTransform.current.x}px, ${mouseTransform.current.y}px)
+      rotate(${mouseTransform.rotation}deg)`;
+
+    // Moving Cursor
+    cursorTransform.current.x = Math.lerp(
+      cursorTransform.current.x,
+      cursorTransform.target.x,
+      0.1
+    );
+    cursorTransform.current.y = Math.lerp(
+      cursorTransform.current.y,
+      cursorTransform.target.y,
+      0.1
+    );
+    cursorElement.style.transform = `translate(
+          ${cursorTransform.current.x}px, ${cursorTransform.current.y}px)`;
+  }
+  mouseCursorAnimation();
 
   // document.addEventListener("mousemove", () => {
   //   const halfScreenWidth = window.innerWidth / 2,
@@ -261,6 +317,56 @@ window.addEventListener("DOMContentLoaded", () => {
   // projectPageContent.addEventListener("mouseenter", () => {
   //   mouseHolderElement.classList.remove("disabled");
   // });
+
+  // === Address Bar Animation ===
+  let projectSections = projectPageContent.firstElementChild.children;
+  let urlPage = document.getElementById("url-page");
+  let highlightTimeout;
+  let typeOutTimeout;
+  let typeOutInterval;
+  let previousSection = 0;
+  projectPageContent.addEventListener(
+    "scroll",
+    throttle((e) => {
+      let currentSection = 0;
+      for (let i = 0; i < projectSections.length; i++) {
+        if (e.target.scrollTop < projectSections[i].offsetTop) break;
+        currentSection = i;
+        // console.log(e.target.scrollTop, projectSections[i].offsetTop);
+      }
+      if (currentSection != previousSection) {
+        clearTimeout(highlightTimeout);
+        clearTimeout(typeOutTimeout);
+        clearInterval(typeOutInterval);
+        urlPage.classList.add("highlight");
+        let currentSectionName =
+          projectSections[currentSection].firstElementChild.innerHTML;
+        currentSectionName = currentSectionName
+          .toLowerCase()
+          .split(" ")
+          .join("-");
+        highlightTimeout = setTimeout(() => {
+          urlPage.innerText = "";
+          urlPage.classList.remove("highlight");
+          // Type out the new url
+          let charIndex = 0;
+          typeOutTimeout = setTimeout(() => {
+            typeOutInterval = setInterval(() => {
+              urlPage.innerText += currentSectionName[charIndex];
+              charIndex++;
+              console.log(charIndex);
+              if (charIndex >= currentSectionName.length) {
+                clearInterval(typeOutInterval);
+                typeOutInterval = null;
+              }
+            }, 50);
+          }, 250);
+        }, 500);
+        console.log("Current Section: ", currentSection, currentSectionName);
+        previousSection = currentSection;
+      }
+    }, 16)
+  );
 });
 
 },{"lodash.debounce":2,"lodash.throttle":3}],2:[function(require,module,exports){
@@ -1136,13 +1242,13 @@ function typeOutNextCharacter() {
       // Display the return symbol
       typewriterLines[currentLineIndex].children[1].style.display = "block";
 
-      setTimeout(typeOutNextCharacter, 0); //500 + Math.random() * 250);
-    }, 0); //100 + Math.random() * 50);
+      setTimeout(typeOutNextCharacter, 500 + Math.random() * 250);
+    }, 100 + Math.random() * 50);
     return;
   }
 
   // Make another call to typeOutNextCharacter to create a loop
-  setTimeout(typeOutNextCharacter, 0); //15 + Math.random() * 85);
+  setTimeout(typeOutNextCharacter, 15 + Math.random() * 85);
 }
 
 },{}]},{},[1,4]);

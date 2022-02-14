@@ -46,11 +46,11 @@ function typeOutNextCharacter() {
       // Display the return symbol
       typewriterLines[currentLineIndex].children[1].style.display = "block";
 
-      setTimeout(typeOutNextCharacter, 0); //500 + Math.random() * 250);
-    }, 0); //100 + Math.random() * 50);
+      setTimeout(typeOutNextCharacter, 500 + Math.random() * 250);
+    }, 100 + Math.random() * 50);
     return;
   }
 
   // Make another call to typeOutNextCharacter to create a loop
-  setTimeout(typeOutNextCharacter, 0); //15 + Math.random() * 85);
+  setTimeout(typeOutNextCharacter, 15 + Math.random() * 85);
 }
