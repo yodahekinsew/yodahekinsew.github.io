@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: baloo;
-  src: url(./baloo/Baloo-Regular.ttf);
+  src: url(./baloo/Baloo-Regular.woff) format("woff");
   font-display: swap;
 }
 
@@ -61,7 +61,8 @@
     );
   }
 
-  --desk-size: calc(2 * min(100vw, calc(1.78 * 100vh)));
+  // --desk-size: calc(2 * min(100vw, calc(1.78 * 100vh)));
+  --desk-size: calc(2 * var(--device-width));
 }
 
 html,
@@ -210,21 +211,23 @@ body.can-scroll {
     opacity: 1;
     transform: translate(0, 0);
 
-    #scroll-down-icon {
-      cursor: pointer;
-      img {
-        transition: transform 1s ease;
-        transform: translate(0, 0);
-      }
-      &:hover {
+    @include responsive.tall {
+      #scroll-down-icon {
+        cursor: pointer;
         img {
-          transition: transform 0.5s ease;
-          transform: translate(0, 15px);
+          transition: transform 1s ease;
+          transform: translate(0, 0);
         }
-      }
-      &:active {
-        img {
-          transform: translate(0, 15px) scale(0.9);
+        &:hover {
+          img {
+            transition: transform 0.5s ease;
+            transform: translate(0, 15px);
+          }
+        }
+        &:active {
+          img {
+            transform: translate(0, 15px) scale(0.9);
+          }
         }
       }
     }
@@ -324,8 +327,9 @@ body.can-scroll {
   // cursor: none;
   overflow-y: auto;
   position: relative;
-  background: var(--blue);
-  background: linear-gradient(var(--blue) 65%, var(--green) 65%);
+  // background: var(--blue);
+  background: var(--green);
+  // background: linear-gradient(var(--blue) 50%, var(--green) 52.5%);
   // background: url(./squigglies.gif) repeat center top;
   // background-size: 10%;
 }
@@ -343,7 +347,7 @@ body.can-scroll {
 // }
 
 .section {
-  margin-bottom: 50px;
+  margin-bottom: 75px;
 }
 
 .section-content {
@@ -399,7 +403,7 @@ body.can-scroll {
   width: 100%;
   // min-height: 100px;
   border-radius: 1em;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25);
   padding: 2.5% 5%;
   box-sizing: border-box;
 
@@ -504,6 +508,7 @@ body.can-scroll {
   top: 50%;
   left: 50%;
   transform: translate(0px, 0px);
+  fill: var(--white);
   filter: drop-shadow(rgba(0, 0, 0, 0.25) -5px 5px 5px);
 }
 
@@ -615,5 +620,34 @@ body.can-scroll {
   flex-direction: column;
   @include responsive.tall {
     flex-direction: row;
+  }
+}
+
+.collapsible-columns {
+  display: flex;
+  flex-wrap: wrap;
+
+  p {
+    width: 50%;
+    text-align: center;
+  }
+
+  @include responsive.tall {
+    p {
+      width: 33%;
+    }
+  }
+}
+
+// === SPECIAL ===
+.app-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(75%, 150px);
+  margin-bottom: 10px;
+
+  @include responsive.tall {
+    width: min(40%, 150px);
   }
 }

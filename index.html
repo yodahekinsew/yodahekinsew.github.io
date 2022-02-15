@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="fullpage.css" /> -->
-    <link rel="preload" as="font" href="/baloo/Baloo-Regular.ttf" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/baloo/Baloo-Regular.woff" type="font/woff" crossorigin="anonymous">
     <link rel="stylesheet" href="./main.css">
-    <title>Document</title>
+    <title>Yodahe Alemu</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#58cc02">
+    <meta name="msapplication-TileColor" content="#58cc02">
+    <meta name="theme-color" content="#ffffff">s
 </head>
 
 <body>
@@ -16,7 +22,7 @@
         <div id="starting-page">
             <!-- <img id="me" class="mobile-only" src="./Static/Mobile/YodaheNoPhone.svg"
             style="position: absolute; z-index: 1; height: 50vh;  top: 35%; left: -2vh;"> -->
-            <div class="parallax-pan" data-parallax-strength="-.025">
+            <div class="parallax-pan" data-parallax-strength=".0125">
                 <div class="parallax-scroll" data-parallax-strength="-5">
                     <div id="starting-background">
                         <img src="./Static/Desktop/Room.svg">
@@ -26,10 +32,10 @@
                     </div>
                 </div>
             </div>
-            <div class="parallax-pan" data-parallax-strength=".0125">
+            <div class="parallax-pan" data-parallax-strength="-.025">
                 <div class="parallax-scroll" data-parallax-strength="5">
                     <div style="position: absolute; height: 100vh; width: 100vw;">
-                        <img id="yodahe" src="./Static/Desktop/Yodahe.svg"
+                        <img id="yodahe" src="./Static/Yodahe.svg"
                             style="position: absolute; height: 88vh;  top: 25%; left: 50%; transform: translate(-25%, 0);">
                     </div>
                 </div>
@@ -121,10 +127,10 @@
                         <div class="section-subheader">Yodahe Quick Facts</div>
                         <div class="card">
                             <div class="collapsible-flex-row">
-                                <div style=" flex: 1 0 0;">
+                                <div style="flex: 1 0 0;">
                                     <img style="width: 100%;" src="./Static/YodaheHeadFront.svg">
                                 </div>
-                                <div style=" flex: 3 0 0;">
+                                <div style="flex: 3 0 0;">
                                     <p class="big-text" style="margin-left: 5%; width: 90%">I like to make
                                         things that people love to use and <span style="font-style: italic;">code</span>
                                         is the best tool for me to do that
@@ -176,29 +182,29 @@
                         </div>
                         <div class="card">
                             <p class="big-text">Technologies</p>
-                            <div style="display: flex; flex-wrap: wrap;">
-                                <p style="width: 33%; text-align: center;">Unity</p>
-                                <p style="width: 33%; text-align: center;">Blender</p>
-                                <p style="width: 33%; text-align: center;">Shaders</p>
-                                <p style="width: 33%; text-align: center;">Audacity</p>
-                                <p style="width: 33%; text-align: center;">HTML</p>
-                                <p style="width: 33%; text-align: center;">JS</p>
-                                <p style="width: 33%; text-align: center;">CSS</p>
-                                <p style="width: 33%; text-align: center;">Three.js</p>
-                                <p style="width: 33%; text-align: center;">ReactJS</p>
-                                <p style="width: 33%; text-align: center;">SASS</p>
-                                <p style="width: 33%; text-align: center;">Socket.io</p>
-                                <p style="width: 33%; text-align: center;">Illustrator</p>
-                                <p style="width: 33%; text-align: center;">After Effects</p>
-                                <p style="width: 33%; text-align: center;">Lottie</p>
+                            <div class="collapsible-columns">
+                                <p>Unity</p>
+                                <p>Blender</p>
+                                <p>Shaders</p>
+                                <p>Audacity</p>
+                                <p>HTML</p>
+                                <p>JS</p>
+                                <p>CSS</p>
+                                <p>Three.js</p>
+                                <p>ReactJS</p>
+                                <p>SASS</p>
+                                <p>Socket.io</p>
+                                <p>Illustrator</p>
+                                <p>After Effects</p>
+                                <p>Lottie</p>
                             </div>
                         </div>
                         <div class="card">
                             <p class="big-text">What I'm Working On</p>
-                            <p>A puzzle game à la 2048...</p>
-                            <p>A typing .io game...</p>
-                            <p>A chat room for learning languages...</p>
-                            <p>A visual wiki of Hawkeye's arrows...</p>
+                            <p>A puzzle game à la 2048&hellip;</p>
+                            <p>A typing .io game&hellip;</p>
+                            <p>A chat room for learning languages&hellip;</p>
+                            <p>A visual wiki of Hawkeye's arrows&hellip;</p>
                         </div>
                     </div>
                     <div class="section">
@@ -211,22 +217,25 @@
                         </div>
                         <div class="card">
                             <p class="big-text">The Games</p>
-                            <div style="display: flex; justify-content: space-between;">
-                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1 0 0;">
-                                    <div
-                                        style="background: var(--white); padding-bottom: min(100%, 100px); width: min(100%, 100px); border-radius: 1em;">
+                            <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+                                <div class="app-icon">
+                                    <div style="padding-bottom: 100%; width: 100%; border-radius: 10%;
+                                        background-image: url(https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/3e/df/73/3edf73c1-fe8f-9afc-d8f8-8ae1a6bfc32f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg);
+                                        background-size: contain; background-position: center;">
                                     </div>
                                     <p class="small-text">Volver</p>
                                 </div>
-                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1 0 0;">
-                                    <div
-                                        style="background: var(--white); padding-bottom: min(100%, 100px); width: min(100%, 100px); border-radius: 1em;">
+                                <div class="app-icon">
+                                    <div style="padding-bottom: 100%; width: 100%; border-radius: 10%;
+                                        background-image: url(https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/10/70/ae/1070aeaf-340d-1769-da30-41e87e1e6755/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg);
+                                        background-size: contain; background-position: center;">
                                     </div>
                                     <p class="small-text">Movementum</p>
                                 </div>
-                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1 0 0;">
-                                    <div
-                                        style="background: var(--white); padding-bottom: min(100%, 100px); width: min(100%, 100px); border-radius: 1em;">
+                                <div class="app-icon">
+                                    <div style="padding-bottom: 100%; width: 100%; border-radius: 10%;
+                                            background-image: url(https://is3-ssl.mzstatic.com/image/thumb/Purple116/v4/fa/66/65/fa66657f-a05f-037f-c808-048712895213/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg);
+                                            background-size: contain; background-position: center;">
                                     </div>
                                     <p class="small-text">Hoppor</p>
                                 </div>
@@ -292,11 +301,13 @@
                         <div class="card">
                             <!-- Picture 1: Caleb's Portfolio Site -->
                             <div
-                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh;
+                                background-image: url(./Static/caleb_portfolio_landing.webp); background-size: cover; background-position: center;">
                             </div>
                             <!-- Picture 2: Faith's Portfolio site -->
                             <div
-                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                                style="padding-bottom: 55%; width: 100%; background: var(--white); border-radius: 1em;
+                                background-image: url(./Static/caleb_portfolio_projects.webp); background-size: cover; background-position: center;">
                             </div>
                         </div>
                         <div class="card">
@@ -314,7 +325,7 @@
                             <p class="bulleted">SASS</p>
                             <p class="bulleted">YouTube Player API</p>
                             <p class="bulleted">Browserify and Uglify</p>
-                            <p class="bulleted">Lottie</p>
+                            <p class="bulleted">Lottie and Adobe After Effects</p>
                         </div>
                     </div>
                     <div class="section">
@@ -328,11 +339,13 @@
                         <div class="card">
                             <!-- Picture 1: Start screen with phone peeking out -->
                             <div
-                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh;
+                                background-image: url(./Static/yojo_studio_landing.webp); background-size: cover; background-position: center;">
                             </div>
                             <!-- Picture 2: One of the app screens -->
                             <div
-                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em;
+                                background-image: url(./Static/yojo_studio_app.webp); background-size: cover; background-position: center;">
                             </div>
                         </div>
                         <div class="card">
@@ -362,11 +375,13 @@
                         <div class="card">
                             <!-- Picture 1: Witchlings start screen -->
                             <div
-                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh;
+                                background-image: url(./Static/witchlings_landing.webp); background-size: cover; background-position: center;">
                             </div>
                             <!-- Picture 2: Goose house cards screen -->
                             <div
-                                style="padding-bottom: 50%; width: 100%; background: var(--white); border-radius: 1em;">
+                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em;
+                                background-image: url(./Static/witchlings_cards.webp); background-size: cover; background-position: center;">
                             </div>
                         </div>
                         <div class="card">
@@ -384,11 +399,26 @@
                             <p class="bulleted">Adobe Illustrator</p>
                         </div>
                     </div>
+                    <div class="section" style="margin-bottom: 0px;">
+                        <div class="section-header" style="display: none;">Thank You</div>
+                        <div style="height: calc(.9 * var(--device-height)); width: 100%; overflow: hidden;">
+                            <div
+                                style="height: var(--device-height); width: 200%; position: absolute; left: 50%; bottom: 0; z-index: -1; overflow: hidden; transform: translate(-50%, 0);">
+                                <img style="position: absolute; top: 0; left: 50%; height: 100%; transform: translate(-50%, 50%);"
+                                    src="./Static/YodaheWaving.svg">
+                            </div>
+                            <div class="section-header"
+                                style="text-align: center; width: 90%; margin-left: 5%; margin-top: 2.5vh">Thank
+                                you
+                                for looking at my projects!
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="project-page-overlay" class="device">
                 <div id="address-bar"
-                    style="width: 100%; height: 10%; background: var(--light-grey); position: relative; box-shadow: 0 5px 0 rgb(0 0 0 / 25%);">
+                    style="width: 100%; height: 10%; background: var(--light-grey); position: relative; box-shadow: 0 0px 10px rgb(0 0 0 / 25%);">
                     <div id="url-holder"
                         style="width: 85%; height: 60%; top: 20%; left: 7.5%; background: var(--white); position: absolute; border-radius: 10px; padding: 0 5%;box-sizing: border-box; display: flex; justify-content: start; align-items: center;">
                         <div id="url">https://yodahe.com/<span id="url-page">about-me</span></div>
@@ -419,7 +449,6 @@
     <script src="./math.js"></script>
     <script src="./smoothScroll.js"></script>
     <script src="./bundle.js"></script>
-    <script src="./addressbar.js"></script>
     <!-- <script src="./main.js"></script> -->
     <!-- <script src="./typewriter.js"></script> -->
 </body>

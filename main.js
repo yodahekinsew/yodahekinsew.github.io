@@ -367,3 +367,5 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 16)
   );
 });
+
+// === Media Queries ===
