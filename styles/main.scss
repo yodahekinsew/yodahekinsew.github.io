@@ -18,6 +18,8 @@
   --purple: #190624;
   --purple-rgb: 25, 6, 36;
   --green: #58cc02;
+  --dark-green: #0d4c06;
+  --blue-green: #00813f;
   --blue: #1cb0f6;
 
   --white: #f7f7f7;
@@ -190,13 +192,14 @@ p {
   transform: translate(0, -100%);
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   position: absolute;
   width: 100%;
   height: 10%;
-  bottom: 15px;
+  bottom: 30px;
 
   img {
     filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.25));
@@ -274,9 +277,9 @@ body.can-scroll {
   background: var(--purple);
   overflow: hidden;
 
-  @include responsive.square {
-    overflow-x: auto;
-  }
+  // @include responsive.square {
+  //   overflow-x: auto;
+  // }
 }
 
 #project-page-underlay {
@@ -325,10 +328,11 @@ body.can-scroll {
 
 #project-page-content {
   // cursor: none;
-  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   // background: var(--blue);
   background: var(--green);
+  cursor: none;
   // background: linear-gradient(var(--blue) 50%, var(--green) 52.5%);
   // background: url(./squigglies.gif) repeat center top;
   // background-size: 10%;
@@ -390,7 +394,7 @@ body.can-scroll {
 }
 
 .section-subheader {
-  color: var(--grey);
+  color: var(--blue-green);
   font-family: baloo;
   font-size: max(calc(3.75 * var(--device-width) / 100), 20px);
   line-height: 100%;
@@ -417,24 +421,27 @@ body.can-scroll {
     border-radius: 1em;
     box-shadow: 0 1em 0 0 rgba(0, 0, 0, 0.25);
   }
+}
 
-  p {
-    font-size: max(calc(3 * var(--device-width) / 100), 18px);
-    font-family: "baloo";
+p {
+  font-size: max(calc(3 * var(--device-width) / 100), 18px);
+  font-family: "baloo";
+  color: var(--dark-green);
+  line-height: 115%;
+  &.small-text {
+    font-size: max(calc(2 * var(--device-width) / 100), 16px);
+  }
+  &.big-text {
+    font-size: max(calc(4.5 * var(--device-width) / 100), 24px);
     color: var(--white);
-    line-height: 115%;
-    &.small-text {
-      font-size: max(calc(2 * var(--device-width) / 100), 16px);
-    }
-    &.big-text {
-      font-size: max(calc(4.5 * var(--device-width) / 100), 24px);
-    }
+    text-shadow: 0px 3px rgb(0 0 0 / 25%);
+    margin-bottom: 5px;
   }
 }
 
 .bulleted::before {
   content: "• ";
-  color: white;
+  color: var(--dark-green);
 }
 
 // === Address Bar Styles
@@ -545,6 +552,7 @@ body.can-scroll {
   height: calc(90% - 30px);
   top: calc(10% + 15px);
   left: 2.5%;
+  cursor: none;
 }
 
 #navigation-thumb {
@@ -556,13 +564,14 @@ body.can-scroll {
 }
 
 #navigation-track {
-  transition: width 0.25s ease 0.2s, border-radius 0.25s ease 0.2s;
+  // transition: width 0.25s ease 0.2s, border-radius 0.25s ease 0.2s;
+  transition: background-color 0.2s ease;
   pointer-events: all;
-  cursor: grab;
+  // cursor: grab;
   height: 100%;
   width: 100%;
   border-radius: 9999px;
-  background: rgb(0 0 0 / 25%);
+  background-color: rgb(0 0 0 / 25%);
   overflow: hidden;
 
   //   &:hover {
@@ -570,8 +579,12 @@ body.can-scroll {
   //     border-radius: 20px;
   //   }
 
+  &:hover {
+    background-color: rgb(0 0 0 / 35%);
+  }
+
   &:active {
-    cursor: grabbing;
+    // cursor: grabbing;
     width: 30px;
     border-radius: 30px;
   }

@@ -40,7 +40,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // === Add button controls ===
   document.getElementById("scroll-down-icon").onclick = () => {
-    smoothScrollTo(0, 2.05 * window.innerHeight, 2);
+    smoothScrollTo(
+      0,
+      documentScrollElement.scrollHeight - documentScrollElement.clientHeight,
+      2
+    );
   };
 
   // === Add element listeners ===
@@ -247,6 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
   );
 
   // Mouse and Cursor Animation Loop
+  const mouseCursorAnimationSpeed = 1;
   function mouseCursorAnimation() {
     setTimeout(mouseCursorAnimation, 16);
 
@@ -254,17 +259,17 @@ window.addEventListener("DOMContentLoaded", () => {
     mouseTransform.current.x = Math.lerp(
       mouseTransform.current.x,
       mouseTransform.target.x,
-      0.1
+      mouseCursorAnimationSpeed
     );
     mouseTransform.current.y = Math.lerp(
       mouseTransform.current.y,
       mouseTransform.target.y,
-      0.1
+      mouseCursorAnimationSpeed
     );
     mouseTransform.rotation = Math.lerp(
       mouseTransform.rotation,
       mouseTransform.targetRotation,
-      0.1
+      mouseCursorAnimationSpeed
     );
     mouseHolderElement.style.transform = `translate(
       ${mouseTransform.current.x}px, ${mouseTransform.current.y}px)
@@ -274,12 +279,12 @@ window.addEventListener("DOMContentLoaded", () => {
     cursorTransform.current.x = Math.lerp(
       cursorTransform.current.x,
       cursorTransform.target.x,
-      0.1
+      mouseCursorAnimationSpeed
     );
     cursorTransform.current.y = Math.lerp(
       cursorTransform.current.y,
       cursorTransform.target.y,
-      0.1
+      mouseCursorAnimationSpeed
     );
     cursorElement.style.transform = `translate(
           ${cursorTransform.current.x}px, ${cursorTransform.current.y}px)`;
@@ -353,7 +358,6 @@ window.addEventListener("DOMContentLoaded", () => {
             typeOutInterval = setInterval(() => {
               urlPage.innerText += currentSectionName[charIndex];
               charIndex++;
-              console.log(charIndex);
               if (charIndex >= currentSectionName.length) {
                 clearInterval(typeOutInterval);
                 typeOutInterval = null;
@@ -361,7 +365,6 @@ window.addEventListener("DOMContentLoaded", () => {
             }, 50);
           }, 250);
         }, 500);
-        console.log("Current Section: ", currentSection, currentSectionName);
         previousSection = currentSection;
       }
     }, 16)

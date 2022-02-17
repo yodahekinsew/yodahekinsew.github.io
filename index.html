@@ -35,8 +35,11 @@
             <div class="parallax-pan" data-parallax-strength="-.025">
                 <div class="parallax-scroll" data-parallax-strength="5">
                     <div style="position: absolute; height: 100vh; width: 100vw;">
-                        <img id="yodahe" src="./Static/Yodahe.svg"
-                            style="position: absolute; height: 88vh;  top: 25%; left: 50%; transform: translate(-25%, 0);">
+                        <!-- <img id="yodahe" src="./Static/Yodahe.svg"
+                            style="position: absolute; height: 88vh;  top: 25%; left: 50%; transform: translate(-25%, 0);"> -->
+                        <div id="yodahe-typing-lottie"
+                            style="position: absolute; height: 88vh; width: 88vh; top: 25%; left: 50%; transform: translate(-25%, 0); transition: opacity 2s ease; opacity: 0;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,6 +80,7 @@
                 </div>
             </div>
             <div id="scroll-down">
+                <p class="small-text" style="color: var(--white);">Scroll for More</p>
                 <div id="scroll-down-icon" style="height: 50px; width: 50px;">
                     <img src="./Static/Icons/Chevron Down.svg" height="50px" width="50px">
                 </div>
@@ -140,7 +144,7 @@
                         </div>
                         <div class="card">
                             <p class="big-text">Education</p>
-                            <p style="color: var(--dark-grey); text-align: right;">Massachusetts Institute of
+                            <p style="color: var(--blue-green);">Massachusetts Institute of
                                 Technology
                             </p>
                             <div style="display: flex; justify-content: space-between;">
@@ -154,7 +158,7 @@
                         </div>
                         <div class="card">
                             <p class="big-text">Experience</p>
-                            <p style="color: var(--dark-grey);">
+                            <p style="color: var(--blue-green);">
                                 I currently work as a Software Engineer at Google, but here's some of the work I've
                                 done
                                 in the past
@@ -219,24 +223,18 @@
                             <p class="big-text">The Games</p>
                             <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
                                 <div class="app-icon">
-                                    <div style="padding-bottom: 100%; width: 100%; border-radius: 10%;
-                                        background-image: url(https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/3e/df/73/3edf73c1-fe8f-9afc-d8f8-8ae1a6bfc32f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg);
-                                        background-size: contain; background-position: center;">
-                                    </div>
+                                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/3e/df/73/3edf73c1-fe8f-9afc-d8f8-8ae1a6bfc32f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg"
+                                        style="width: 100%; border-radius: 10%; box-shadow: 0 5px rgb(0 0 0 / 25%); margin-bottom: 10px;">
                                     <p class="small-text">Volver</p>
                                 </div>
                                 <div class="app-icon">
-                                    <div style="padding-bottom: 100%; width: 100%; border-radius: 10%;
-                                        background-image: url(https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/10/70/ae/1070aeaf-340d-1769-da30-41e87e1e6755/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg);
-                                        background-size: contain; background-position: center;">
-                                    </div>
+                                    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/10/70/ae/1070aeaf-340d-1769-da30-41e87e1e6755/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg"
+                                        style="width: 100%; border-radius: 10%; box-shadow: 0 5px rgb(0 0 0 / 25%); margin-bottom: 10px;">
                                     <p class="small-text">Movementum</p>
                                 </div>
                                 <div class="app-icon">
-                                    <div style="padding-bottom: 100%; width: 100%; border-radius: 10%;
-                                            background-image: url(https://is3-ssl.mzstatic.com/image/thumb/Purple116/v4/fa/66/65/fa66657f-a05f-037f-c808-048712895213/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg);
-                                            background-size: contain; background-position: center;">
-                                    </div>
+                                    <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple116/v4/fa/66/65/fa66657f-a05f-037f-c808-048712895213/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg"
+                                        style="width: 100%; border-radius: 10%; box-shadow: 0 5px rgb(0 0 0 / 25%); margin-bottom: 10px;">
                                     <p class="small-text">Hoppor</p>
                                 </div>
                             </div>
@@ -300,15 +298,11 @@
                         </div>
                         <div class="card">
                             <!-- Picture 1: Caleb's Portfolio Site -->
-                            <div
-                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh;
-                                background-image: url(./Static/caleb_portfolio_landing.webp); background-size: cover; background-position: center;">
-                            </div>
+                            <img src="./Static/caleb_portfolio_landing.webp"
+                                style="width: 100%; border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            <img src="./Static/caleb_portfolio_projects.webp"
+                                style="width: 100%; border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
                             <!-- Picture 2: Faith's Portfolio site -->
-                            <div
-                                style="padding-bottom: 55%; width: 100%; background: var(--white); border-radius: 1em;
-                                background-image: url(./Static/caleb_portfolio_projects.webp); background-size: cover; background-position: center;">
-                            </div>
                         </div>
                         <div class="card">
                             <p class="big-text">Cool Things I Learned</p>
@@ -338,15 +332,11 @@
                         </div>
                         <div class="card">
                             <!-- Picture 1: Start screen with phone peeking out -->
-                            <div
-                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh;
-                                background-image: url(./Static/yojo_studio_landing.webp); background-size: cover; background-position: center;">
-                            </div>
+                            <img src="./Static/yojo_studio_landing.webp"
+                                style="width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
                             <!-- Picture 2: One of the app screens -->
-                            <div
-                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em;
-                                background-image: url(./Static/yojo_studio_app.webp); background-size: cover; background-position: center;">
-                            </div>
+                            <img src="./Static/yojo_studio_app.webp"
+                                style="width: 100%; background: var(--white); border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
                         </div>
                         <div class="card">
                             <p class="big-text">Cool Things I Learned</p>
@@ -374,15 +364,11 @@
                         </div>
                         <div class="card">
                             <!-- Picture 1: Witchlings start screen -->
-                            <div
-                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh;
-                                background-image: url(./Static/witchlings_landing.webp); background-size: cover; background-position: center;">
-                            </div>
+                            <img src="./Static/witchlings_landing.webp"
+                                style="width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
                             <!-- Picture 2: Goose house cards screen -->
-                            <div
-                                style="padding-bottom: 54%; width: 100%; background: var(--white); border-radius: 1em;
-                                background-image: url(./Static/witchlings_cards.webp); background-size: cover; background-position: center;">
-                            </div>
+                            <img src="./Static/witchlings_cards.webp"
+                                style="width: 100%; background: var(--white); border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
                         </div>
                         <div class="card">
                             <p class="big-text">Cool Things I Learned</p>
@@ -404,13 +390,15 @@
                         <div style="height: calc(.9 * var(--device-height)); width: 100%; overflow: hidden;">
                             <div
                                 style="height: var(--device-height); width: 200%; position: absolute; left: 50%; bottom: 0; z-index: -1; overflow: hidden; transform: translate(-50%, 0);">
-                                <img style="position: absolute; top: 0; left: 50%; height: 100%; transform: translate(-50%, 50%);"
-                                    src="./Static/YodaheWaving.svg">
+                                <!-- <img style="position: absolute; top: 0; left: 50%; height: 100%; transform: translate(-50%, 50%);"
+                                    src="./Static/YodaheWaving.svg"> -->
+                                <div id="yodahe-waving-lottie"
+                                    style=" position: absolute; bottom: 0px; left: 50%; height: calc(1.25 * var(--device-height)); width: calc(1.25 * var(--device-height)); transform: translate(-50%, 35%);">
+                                </div>
                             </div>
                             <div class="section-header"
-                                style="text-align: center; width: 90%; margin-left: 5%; margin-top: 2.5vh">Thank
-                                you
-                                for looking at my projects!
+                                style="text-align: center; width: 90%; margin-left: 5%; margin-top: 2.5vh">
+                                Thank you for looking at my projects!
                             </div>
                         </div>
                     </div>
@@ -449,6 +437,33 @@
     <script src="./math.js"></script>
     <script src="./smoothScroll.js"></script>
     <script src="./bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js" type="text/javascript"></script>
+    <script>
+        const yodaheTypingAnimHolder = document.getElementById("yodahe-typing-lottie");
+        const yodaheTypingAnim = bodymovin.loadAnimation({
+            container: yodaheTypingAnimHolder, // Required
+            path: "Yodahe.json", // Required
+            renderer: "svg", // Required
+            loop: true, // Optional
+            autoplay: true, // Optional
+            name: "Loading", // Name for future reference. Optional.
+        });
+        yodaheTypingAnim.setSpeed(.5);
+        yodaheTypingAnim.addEventListener("DOMLoaded", () => {
+            yodaheTypingAnimHolder.style.opacity = 1;
+        });
+
+        const yodaheWavingAnimHolder = document.getElementById("yodahe-waving-lottie");
+        const yodaheWavingAnim = bodymovin.loadAnimation({
+            container: yodaheWavingAnimHolder, // Required
+            path: "YodaheWaving.json", // Required
+            renderer: "svg", // Required
+            loop: true, // Optional
+            autoplay: true, // Optional
+            name: "Loading", // Name for future reference. Optional.
+        });
+        yodaheWavingAnim.setSpeed(.5);
+    </script>
     <!-- <script src="./main.js"></script> -->
     <!-- <script src="./typewriter.js"></script> -->
 </body>
