@@ -9,7 +9,10 @@ let currentCharIndex = 0;
 let typing = false;
 
 const finishTypingEvent = new Event("finishTyping");
-startTyping();
+
+window.addEventListener("DOMContentLoaded", () =>
+  setTimeout(startTyping, 1000)
+);
 
 function startTyping() {
   typing = true;

@@ -193,7 +193,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // === Parallax Panning ===
   let parallaxPanningElements = document.getElementsByClassName("parallax-pan");
-  let mouseHolderElement = document.getElementById("mouse-holder"),
+  let mouseElement = document.getElementById("mouse"),
+    mouseHolderElement = document.getElementById("mouse-holder"),
     cursorElement = document.getElementById("cursor");
   let mouseTransform = {
       current: { x: 0, y: 0 },
@@ -205,8 +206,6 @@ window.addEventListener("DOMContentLoaded", () => {
       current: { x: 0, y: 0 },
       target: { x: 0, y: 0 },
     };
-  let mouseTarget = { x: 0, y: 0 };
-  let cusorTarget = { x: 0, y: 0 };
   document.addEventListener(
     "mousemove",
     throttle((e) => {
@@ -235,15 +234,20 @@ window.addEventListener("DOMContentLoaded", () => {
       ) {
         (mouseX = e.clientX - screenRect.x - screenRect.width / 2),
           (mouseY = e.clientY - screenRect.y - screenRect.height / 2);
-        // mouseHolderElement.style.transform = `translate(
+        // mouseElement.style.transform = `translate(
         //   ${mouseX * 0.2}px, ${mouseY * 0.125}px)`;
         // Moving Cursor
         // cursorElement.style.transform = `translate(
         //       ${mouseX}px, ${mouseY}px)`;
         // Set the mouse and cursor targets
         // Used to animate in mouseCursorAnimation()
-        mouseTransform.target.x = mouseX * 0.2;
-        mouseTransform.target.y = mouseY * 0.125;
+        mouseTransform.target.x =
+          (mouseX / (screenRect.width / 2)) *
+          (mouseHolderElement.clientWidth / 2);
+        // mouseTransform.target.y = mouseY * 0.125;
+        mouseTransform.target.y =
+          (mouseY / (screenRect.height / 2)) *
+          (mouseHolderElement.clientHeight / 2);
         mouseTransform.targetRotation = mouseX * 0.025 + 5;
         cursorTransform.target.x = mouseX;
         cursorTransform.target.y = mouseY;
@@ -272,7 +276,7 @@ window.addEventListener("DOMContentLoaded", () => {
       mouseTransform.targetRotation,
       mouseCursorAnimationSpeed
     );
-    mouseHolderElement.style.transform = `translate(
+    mouseElement.style.transform = `translate(
       ${mouseTransform.current.x}px, ${mouseTransform.current.y}px)
       rotate(${mouseTransform.rotation}deg)`;
 
@@ -292,36 +296,16 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   mouseCursorAnimation();
 
-  // document.addEventListener("mousemove", () => {
-  //   const halfScreenWidth = window.innerWidth / 2,
-  //     halfScreenHeight = window.innerHeight / 2;
-  //   let mouseX = e.clientX - halfScreenWidth,
-  //     mouseY = e.clientY - halfScreenHeight;
-  // });
-
-  // === Mouse panning ===
-  // let mouseHolderElement = document.getElementById("mouse-holder");
-  // console.log(mouseHolderElement);
-  // projectPageContent.addEventListener(
-  //   "mousemove",
-  //   throttle((e) => {
-  //     console.log(e, e.offsetX, e.offsetY);
-  //     const halfDeviceWidth = projectPageContent.offsetWidth / 2,
-  //       halfDeviceHeight = projectPageContent.offsetHeight / 2;
-  //     const mouseX = e.offsetX - halfDeviceWidth,
-  //       mouseY = e.offsetY - halfDeviceHeight;
-  //     const xTranslation = mouseX * 0.25;
-  //     const yTranslation = mouseY * 0.125;
-  //     mouseHolderElement.style.transform = `translate(${xTranslation}px, ${yTranslation}px)`;
-  //   }, 16)
-  // );
-  // projectPageContent.addEventListener("mouseleave", () => {
-  //   // mouseHolderElement.style.transform = `translate(0, 0)`;
-  //   mouseHolderElement.classList.add("disabled");
-  // });
-  // projectPageContent.addEventListener("mouseenter", () => {
-  //   mouseHolderElement.classList.remove("disabled");
-  // });
+  // === Update Mouse Cursor ===
+  const pointerElements = document.getElementsByClassName("pointer");
+  for (let i = 0; i < pointerElements.length; i++) {
+    pointerElements[i].addEventListener("mouseenter", () => {
+      cursorElement.classList.add("fa-hand-pointer");
+    });
+    pointerElements[i].addEventListener("mouseleave", () => {
+      cursorElement.classList.remove("fa-hand-pointer");
+    });
+  }
 
   // === Address Bar Animation ===
   let projectSections = projectPageContent.firstElementChild.children;
@@ -370,6 +354,9 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }, 16)
   );
+
+  // Now that the DOM is loaded, fade everything in
+  document.body.style.opacity = 1;
 });
 
 // === Media Queries ===
@@ -1210,7 +1197,10 @@ let currentCharIndex = 0;
 let typing = false;
 
 const finishTypingEvent = new Event("finishTyping");
-startTyping();
+
+window.addEventListener("DOMContentLoaded", () =>
+  setTimeout(startTyping, 1000)
+);
 
 function startTyping() {
   typing = true;

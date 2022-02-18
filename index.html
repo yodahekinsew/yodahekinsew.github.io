@@ -7,18 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" as="font" href="/baloo/Baloo-Regular.woff" type="font/woff" crossorigin="anonymous">
     <link rel="stylesheet" href="./main.css">
-    <title>Yodahe Alemu</title>
+    <script src="https://kit.fontawesome.com/885b6b8ec7.js" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
     <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#58cc02">
     <meta name="msapplication-TileColor" content="#58cc02">
-    <meta name="theme-color" content="#ffffff">s
+    <meta name="theme-color" content="#ffffff">
+    <title>Yodahe Alemu</title>
 </head>
 
 <body>
     <div id="view">
+        <div class="fixed-footer">
+            <a href="https://github.com/yodahekinsew/PortfolioWebsite" target="_blank" class="fixed-button">
+                <i style="color: var(--white); font-size: 35px; margin: 10px;" class="fa-solid fa-code"></i>
+            </a>
+        </div>
+
         <div id="starting-page">
             <!-- <img id="me" class="mobile-only" src="./Static/Mobile/YodaheNoPhone.svg"
             style="position: absolute; z-index: 1; height: 50vh;  top: 35%; left: -2vh;"> -->
@@ -38,7 +45,7 @@
                         <!-- <img id="yodahe" src="./Static/Yodahe.svg"
                             style="position: absolute; height: 88vh;  top: 25%; left: 50%; transform: translate(-25%, 0);"> -->
                         <div id="yodahe-typing-lottie"
-                            style="position: absolute; height: 88vh; width: 88vh; top: 25%; left: 50%; transform: translate(-25%, 0); transition: opacity 2s ease; opacity: 0;">
+                            style="position: absolute; height: 88vh; width: 88vh; top: 25%; left: 50%; transform: translate(-25%, 0);">
                         </div>
                     </div>
                 </div>
@@ -103,11 +110,12 @@
             <div id="desk">
                 <div id="desktop"></div>
                 <div id="keyboard-holder" class="desktop-only">
-                    <img src="./Static/Desktop/Keyboard.svg" style="height: 100%; transform: translate(-85%, -5%);">
+                    <img src="./Static/Desktop/Keyboard.svg">
                 </div>
-                <div id="mouse-holder" class="desktop-only">
-                    <img id="mouse" src="./Static/Desktop/Mouse.svg"
-                        style="height: 100%; transform: rotate(-10deg) translate(-50%, 0);">
+                <div id="mouse-holder">
+                    <div id="mouse" class="desktop-only">
+                        <img src="./Static/Desktop/Mouse.svg">
+                    </div>
                 </div>
                 <img src="./Static/Desktop/MonitorStand.svg" class="desktop-only"
                     style="position: absolute; height: 9.3vh; top: calc(5% + var(--device-height) + var(--device-border-bottom)); left: 50%; transform: translate(-50%, 0);">
@@ -142,6 +150,38 @@
                                 </div>
                             </div>
                         </div>
+                        <div style="display: flex;">
+                            <div class="card flex-card">
+                                <a href="https://www.github.com/yodahekinsew" target="_blank" class="pointer">
+                                    <i style="color: var(--white); font-size: calc(10 * var(--device-width) / 100); position: absolute; left: 50%; top: 50%;"
+                                        class="fa-brands fa-github"></i>
+                                </a>
+                            </div>
+                            <div class="card flex-card">
+                                <a href="https://www.linkedin.com/in/yodahe-alemu/" target="_blank" class="pointer">
+                                    <i style="color: var(--white); font-size: calc(10 * var(--device-width) / 100); position: absolute; left: 50%; top: 50%;"
+                                        class="fa-brands fa-linkedin"></i>
+                                </a>
+                            </div>
+                            <div class="card flex-card">
+                                <a href="https://www.yodahegames.itch.io/" target="_blank" class="pointer">
+                                    <i style="color: var(--white); font-size: calc(10 * var(--device-width) / 100); position: absolute; left: 50%; top: 50%;"
+                                        class="fa-brands fa-itch-io"></i>
+                                </a>
+                            </div>
+                            <div class="card flex-card">
+                                <a href="https://www.yodahegames.itch.io/" target="_blank" class="pointer">
+                                    <i style="color: var(--white); font-size: calc(10 * var(--device-width) / 100); position: absolute; left: 50%; top: 50%;"
+                                        class="fa-solid fa-file"></i>
+                                </a>
+                            </div>
+                            <div class=" card flex-card">
+                                <a href="mailto:yodahekinsew@gmail.com" class="pointer">
+                                    <i style="color: var(--white); font-size: calc(10 * var(--device-width) / 100); position: absolute; left: 50%; top: 50%;"
+                                        class="fa-solid fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
                         <div class="card">
                             <p class="big-text">Education</p>
                             <p style="color: var(--blue-green);">Massachusetts Institute of
@@ -159,7 +199,8 @@
                         <div class="card">
                             <p class="big-text">Experience</p>
                             <p style="color: var(--blue-green);">
-                                I currently work as a Software Engineer at Google, but here's some of the work I've
+                                I currently work as a Software Engineer at Google, but here's some of the work
+                                I've
                                 done
                                 in the past
                             </p>
@@ -215,28 +256,32 @@
                         <div class="section-header">YoJo Studio Games</div>
                         <div class="section-subheader">Mobile Games</div>
                         <div class="card">
-                            <p> A series of hypercasual games, built using the Unity engine and published on the App
+                            <p> A series of hypercasual games, built using the Unity engine and published on the
+                                App
                                 Store. As my
                                 first ever published games, these mean a lot to me. </p>
                         </div>
                         <div class="card">
                             <p class="big-text">The Games</p>
                             <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
-                                <div class="app-icon">
+                                <a href="https://apps.apple.com/us/app/volver-endless-revolution/id1538375240?itscg=30200&amp;itsct=apps_box_appicon"
+                                    target="_blank" class="app-icon pointer">
                                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/3e/df/73/3edf73c1-fe8f-9afc-d8f8-8ae1a6bfc32f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg"
                                         style="width: 100%; border-radius: 10%; box-shadow: 0 5px rgb(0 0 0 / 25%); margin-bottom: 10px;">
                                     <p class="small-text">Volver</p>
-                                </div>
-                                <div class="app-icon">
+                                </a>
+                                <a href="https://apps.apple.com/us/app/movementum-move-to-live/id1564473666?itscg=30200&itsct=apps_box_appicon"
+                                    target="_blank" class="app-icon pointer">
                                     <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/10/70/ae/1070aeaf-340d-1769-da30-41e87e1e6755/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg"
                                         style="width: 100%; border-radius: 10%; box-shadow: 0 5px rgb(0 0 0 / 25%); margin-bottom: 10px;">
                                     <p class="small-text">Movementum</p>
-                                </div>
-                                <div class="app-icon">
+                                </a>
+                                <a href="https://apps.apple.com/us/app/hoppor/id1565091317?itscg=30200&itsct=apps_box_appicon"
+                                    target="_blank" class="app-icon pointer">
                                     <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple116/v4/fa/66/65/fa66657f-a05f-037f-c808-048712895213/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/540x540bb.jpg"
                                         style="width: 100%; border-radius: 10%; box-shadow: 0 5px rgb(0 0 0 / 25%); margin-bottom: 10px;">
                                     <p class="small-text">Hoppor</p>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div class="card">
@@ -264,7 +309,8 @@
                             <p>
                                 A puzzle game made using Unity, focused around increasingly complex movement
                                 puzzles. I
-                                grew up playing games on CoolMathGames.com and it's cool that I have my own game on
+                                grew up playing games on CoolMathGames.com and it's cool that I have my own game
+                                on
                                 there now!
                             </p>
                         </div>
@@ -298,9 +344,9 @@
                         </div>
                         <div class="card">
                             <!-- Picture 1: Caleb's Portfolio Site -->
-                            <img src="./Static/caleb_portfolio_landing.webp"
+                            <img src="./Static/caleb_portfolio_landing.webp" class="pointer"
                                 style="width: 100%; border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
-                            <img src="./Static/caleb_portfolio_projects.webp"
+                            <img src="./Static/caleb_portfolio_projects.webp" class="pointer"
                                 style="width: 100%; border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
                             <!-- Picture 2: Faith's Portfolio site -->
                         </div>
@@ -332,11 +378,15 @@
                         </div>
                         <div class="card">
                             <!-- Picture 1: Start screen with phone peeking out -->
-                            <img src="./Static/yojo_studio_landing.webp"
-                                style="width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            <a href="https://yojo.studio/" target="_blank">
+                                <img src="./Static/yojo_studio_landing.webp" class="pointer"
+                                    style="width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            </a>
                             <!-- Picture 2: One of the app screens -->
-                            <img src="./Static/yojo_studio_app.webp"
-                                style="width: 100%; background: var(--white); border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            <a href="https://yojo.studio/" target="_blank">
+                                <img src="./Static/yojo_studio_app.webp" class="pointer"
+                                    style="width: 100%; background: var(--white); border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            </a>
                         </div>
                         <div class="card">
                             <p class="big-text">Cool Things I Learned</p>
@@ -359,16 +409,21 @@
                         <div class="section-subheader">Websites</div>
                         <div class="card">
                             <p>
-                                An interactive quiz website made for Claribel Ortega's new book series - Witchlings.
+                                An interactive quiz website made for Claribel Ortega's new book series -
+                                Witchlings.
                             </p>
                         </div>
                         <div class="card">
                             <!-- Picture 1: Witchlings start screen -->
-                            <img src="./Static/witchlings_landing.webp"
-                                style="width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            <a href="https://www.yodahe.com/witchlings/" target="_blank">
+                                <img src="./Static/witchlings_landing.webp" class="pointer"
+                                    style="width: 100%; background: var(--white); border-radius: 1em; margin-bottom: 2.5vh; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            </a>
                             <!-- Picture 2: Goose house cards screen -->
-                            <img src="./Static/witchlings_cards.webp"
-                                style="width: 100%; background: var(--white); border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            <a href="https://www.yodahe.com/witchlings/" target="_blank">
+                                <img src="./Static/witchlings_cards.webp" class="pointer"
+                                    style="width: 100%; background: var(--white); border-radius: 1em; box-shadow: 0 5px rgb(0 0 0 / 25%);">
+                            </a>
                         </div>
                         <div class="card">
                             <p class="big-text">Cool Things I Learned</p>
@@ -420,14 +475,16 @@
                     style="position: absolute; z-index: 1; height: 28vh;  top: 0; left: 0; transform: translate(calc(-21% - var(--device-border)), calc(-23.6% - var(--device-border)));">
                 <img class="tablet-only" src="./Static/Tablet/TopRightFingers.svg"
                     style="position: absolute; z-index: 1; height: 21.3vh;  bottom: 0; right: 0; transform: translate(calc(70% + var(--device-border)), calc(-15vh + 33%));">
-                <div id="navigation">
+                <div id="navigation" class="pointer">
                     <div id="navigation-track">
                         <div id="navigation-thumb"></div>
                     </div>
                 </div>
                 <div
                     style="height: 100%; width: 100%; border-radius: inherit; overflow: hidden; position: fixed; top: 0; left: 0;">
-                    <img id="cursor" class="desktop-only" src="./Static/Desktop/Cursor.svg">
+                    <!-- <img id="cursor" class="desktop-only" src="./Static/Desktop/Cursor.svg"> -->
+                    <i id="cursor" class="fa-solid fa-arrow-pointer"></i>
+                    <!-- <i id="cursor" class="fa-solid fa-hand-pointer"></i> -->
                 </div>
             </div>
         </div>
@@ -449,9 +506,6 @@
             name: "Loading", // Name for future reference. Optional.
         });
         yodaheTypingAnim.setSpeed(.5);
-        yodaheTypingAnim.addEventListener("DOMLoaded", () => {
-            yodaheTypingAnimHolder.style.opacity = 1;
-        });
 
         const yodaheWavingAnimHolder = document.getElementById("yodahe-waving-lottie");
         const yodaheWavingAnim = bodymovin.loadAnimation({
