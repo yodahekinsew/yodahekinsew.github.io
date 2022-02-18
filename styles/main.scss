@@ -451,16 +451,23 @@ body.can-scroll {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 5px 25px 5px;
+  margin: 0 5px 0 5px;
   padding: 0px;
   pointer-events: none;
+
+  &:first-child {
+    margin: 0 5px 0 0;
+  }
+  &:last-child {
+    margin: 0 0 0 5px;
+  }
 
   a {
     width: 100%;
     padding-bottom: 100%;
     text-decoration: none;
     pointer-events: all;
-    cursor: none;
+    // cursor: none;
 
     i {
       will-change: transform;
@@ -748,8 +755,11 @@ p {
 }
 
 .pointer {
-  pointer-events: all;
-  cursor: none;
+  cursor: pointer;
+  @include responsive.square {
+    pointer-events: all;
+    cursor: none;
+  }
 }
 
 .fa-hand-pointer {

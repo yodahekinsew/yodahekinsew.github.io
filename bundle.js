@@ -1,19 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-// // require("./fullpage.scrollHorizontally.min");
-// // var fullpage = require("fullpage.js");
-// require("fullpage.js/dist/con")
-// const fullpage = require("fullpage.js/dist/fullpage.extensions.min");
-
-// // Initializing it
-// const fullPageInstance = new fullpage("#fullpage", {
-//   licenseKey: "F0B4B756-26B54F37-82E7E63A-DB5F3A69",
-//   //   navigation: true,
-//   continuousHorizontal: true,
-//   slidesNavigation: true,
-//   sectionsColor: ["#ff5f45", "var(--bg-green)", "#fc6c7c", "grey"],
-// });
-// console.log(fullPageInstance);
-
 const debounce = require("lodash.debounce"),
   throttle = require("lodash.throttle");
 
@@ -100,8 +85,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const scrollProgress = Math.clamp01(
       Math.inverseLerp(
         e.clientY,
-        Math.round(navigationTrackRect.top),
-        Math.round(navigationTrackRect.top + navigationTrackRect.height)
+        Math.round(navigationTrackRect.top + navigationThumb.offsetHeight / 2),
+        Math.round(
+          navigationTrackRect.top +
+            navigationTrackRect.height -
+            navigationThumb.offsetHeight / 2
+        )
       )
     );
     projectPageContent.scrollTop =
@@ -361,7 +350,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // === Media Queries ===
 
-},{"lodash.debounce":2,"lodash.throttle":3}],2:[function(require,module,exports){
+},{"lodash.debounce":3,"lodash.throttle":4}],2:[function(require,module,exports){
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function inverseLerp(t, a, b) {
+  return (t - a) / (b - a);
+}
+
+function clamp01(a) {
+  return Math.max(Math.min(a, 1), 0);
+}
+
+// === Export to Math ===
+Math.lerp = lerp;
+Math.inverseLerp = inverseLerp;
+Math.clamp01 = clamp01;
+
+},{}],3:[function(require,module,exports){
 (function (global){(function (){
 /**
  * lodash (Custom Build) <https://lodash.com/>
@@ -742,7 +749,7 @@ function toNumber(value) {
 module.exports = debounce;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 (function (global){(function (){
 /**
  * lodash (Custom Build) <https://lodash.com/>
@@ -1185,7 +1192,131 @@ function toNumber(value) {
 module.exports = throttle;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
+window.documentScrollElement = document.body || document.documentElement;
+const finishScrollingEvent = new Event("finishScrolling");
+
+const ongoingScrolls = new Map();
+
+window.smoothScrollTo = smoothScrollTo;
+function smoothScrollTo(
+  targetScrollLeft,
+  targetScrollTop,
+  duration,
+  scrollElement,
+  callback
+) {
+  scrollElement = scrollElement || documentScrollElement;
+  console.log(
+    "smooth scrolling ",
+    scrollElement,
+    targetScrollLeft,
+    targetScrollTop
+  );
+  disableManualScrolling(scrollElement);
+
+  if (ongoingScrolls.has(scrollElement))
+    clearInterval(ongoingScrolls.get(scrollElement));
+
+  const startLeft = scrollElement.scrollLeft;
+  const startTop = scrollElement.scrollTop;
+  const startTime = Date.now() / 1000;
+  const scrollingInterval = setInterval(() => {
+    const currentTime = Date.now() / 1000;
+    const elapsedTime = currentTime - startTime;
+
+    const easeValue = easeInOutQuad(Math.min(elapsedTime / duration, 1));
+    scrollElement.scrollTo(
+      Math.lerp(startLeft, targetScrollLeft, easeValue),
+      Math.lerp(startTop, targetScrollTop, easeValue)
+    );
+
+    // When the scroll has finished (duration has passed)
+    if (easeValue >= 1) {
+      scrollElement.scrollTo(targetScrollLeft, targetScrollTop);
+      document.dispatchEvent(finishScrollingEvent);
+      enableManualScrolling(scrollElement);
+      clearInterval(scrollingInterval);
+      ongoingScrolls.delete(scrollElement);
+      if (callback) callback();
+    }
+  }, 16); // 60 fps
+
+  ongoingScrolls.set(scrollElement, scrollingInterval);
+}
+
+// === Easings ===
+function easeInOutQuad(x) {
+  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+}
+function easeOutBack(x) {
+  const c1 = 1.70158;
+  const c3 = c1 + 1;
+  return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+}
+
+// === Disable Scrolling ===
+
+const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+function preventDefaultWhenScrolling(e) {
+  e.preventDefault();
+}
+function preventDefaultForScrollKeysWhenScrolling(e) {
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
+}
+
+// modern Chrome requires { passive: false } when adding event
+let supportsPassive = false;
+try {
+  window.addEventListener(
+    "test",
+    null,
+    Object.defineProperty({}, "passive", {
+      get: function () {
+        supportsPassive = true;
+      },
+    })
+  );
+} catch (e) {}
+
+const wheelOpt = supportsPassive ? { passive: false } : false;
+const wheelEvent =
+  "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+
+function disableManualScrolling(element) {
+  // Using pointer events is a bit strong but useful
+  // for my specific usecase
+  element.style.pointerEvents = "none";
+
+  //   element.addEventListener(
+  //     "DOMMouseScroll",
+  //     preventDefaultWhenScrolling,
+  //     false
+  //   ); // older FF
+  //   element.addEventListener(wheelEvent, preventDefaultWhenScrolling, wheelOpt); // modern desktop
+  //   element.addEventListener("touchmove", preventDefaultWhenScrolling, wheelOpt); // mobile
+  //   element.addEventListener(
+  //     "keydown",
+  //     preventDefaultForScrollKeysWhenScrolling,
+  //     false
+  //   );
+}
+
+function enableManualScrolling(element) {
+  element.style.pointerEvents = "initial";
+  //   element.removeEventListener("DOMMouseScroll", preventDefaultWhenScrolling); // older FF
+  //   element.removeEventListener(wheelEvent, preventDefaultWhenScrolling); // modern desktop
+  //   element.removeEventListener("touchmove", preventDefaultWhenScrolling); // mobile
+  //   element.removeEventListener(
+  //     "keydown",
+  //     preventDefaultForScrollKeysWhenScrolling
+  //   );
+}
+
+},{}],6:[function(require,module,exports){
 let typewriterLines = document.getElementsByClassName("typewriter");
 let lines = [];
 for (let i = 0; i < typewriterLines.length; i++) {
@@ -1246,4 +1377,4 @@ function typeOutNextCharacter() {
   setTimeout(typeOutNextCharacter, 15 + Math.random() * 85);
 }
 
-},{}]},{},[1,4]);
+},{}]},{},[6,2,5,1]);

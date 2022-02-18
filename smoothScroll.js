@@ -1,8 +1,9 @@
-const documentScrollElement = document.body || document.documentElement;
+window.documentScrollElement = document.body || document.documentElement;
 const finishScrollingEvent = new Event("finishScrolling");
 
 const ongoingScrolls = new Map();
 
+window.smoothScrollTo = smoothScrollTo;
 function smoothScrollTo(
   targetScrollLeft,
   targetScrollTop,

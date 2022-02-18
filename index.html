@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" as="font" href="/baloo/Baloo-Regular.woff" type="font/woff" crossorigin="anonymous">
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./main.min.css">
     <script src="https://kit.fontawesome.com/885b6b8ec7.js" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -20,11 +20,11 @@
 
 <body>
     <div id="view">
-        <div class="fixed-footer">
+        <!-- <div class="fixed-footer">
             <a href="https://github.com/yodahekinsew/PortfolioWebsite" target="_blank" class="fixed-button">
                 <i style="color: var(--white); font-size: 35px; margin: 10px;" class="fa-solid fa-code"></i>
             </a>
-        </div>
+        </div> -->
 
         <div id="starting-page">
             <!-- <img id="me" class="mobile-only" src="./Static/Mobile/YodaheNoPhone.svg"
@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="display: flex;">
+                        <div style="display: flex; margin: 10px 0 25px 0;">
                             <div class="card flex-card">
                                 <a href="https://www.github.com/yodahekinsew" target="_blank" class="pointer">
                                     <i style="color: var(--white); font-size: calc(10 * var(--device-width) / 100); position: absolute; left: 50%; top: 50%;"
@@ -481,7 +481,7 @@
                         <div id="navigation-thumb"></div>
                     </div>
                 </div>
-                <div
+                <div class="desktop-only"
                     style="height: 100%; width: 100%; border-radius: inherit; overflow: hidden; position: fixed; top: 0; left: 0;">
                     <!-- <img id="cursor" class="desktop-only" src="./Static/Desktop/Cursor.svg"> -->
                     <i id="cursor" class="fa-solid fa-arrow-pointer"></i>
@@ -490,11 +490,7 @@
             </div>
         </div>
     </div>
-
-
-    <script src="./math.js"></script>
-    <script src="./smoothScroll.js"></script>
-    <script src="./bundle.js"></script>
+    <script src="./bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js" type="text/javascript"></script>
     <script>
         const yodaheTypingAnimHolder = document.getElementById("yodahe-typing-lottie");

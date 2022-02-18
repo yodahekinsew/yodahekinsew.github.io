@@ -1,18 +1,3 @@
-// // require("./fullpage.scrollHorizontally.min");
-// // var fullpage = require("fullpage.js");
-// require("fullpage.js/dist/con")
-// const fullpage = require("fullpage.js/dist/fullpage.extensions.min");
-
-// // Initializing it
-// const fullPageInstance = new fullpage("#fullpage", {
-//   licenseKey: "F0B4B756-26B54F37-82E7E63A-DB5F3A69",
-//   //   navigation: true,
-//   continuousHorizontal: true,
-//   slidesNavigation: true,
-//   sectionsColor: ["#ff5f45", "var(--bg-green)", "#fc6c7c", "grey"],
-// });
-// console.log(fullPageInstance);
-
 const debounce = require("lodash.debounce"),
   throttle = require("lodash.throttle");
 
@@ -99,8 +84,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const scrollProgress = Math.clamp01(
       Math.inverseLerp(
         e.clientY,
-        Math.round(navigationTrackRect.top),
-        Math.round(navigationTrackRect.top + navigationTrackRect.height)
+        Math.round(navigationTrackRect.top + navigationThumb.offsetHeight / 2),
+        Math.round(
+          navigationTrackRect.top +
+            navigationTrackRect.height -
+            navigationThumb.offsetHeight / 2
+        )
       )
     );
     projectPageContent.scrollTop =

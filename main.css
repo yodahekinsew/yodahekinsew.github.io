@@ -416,16 +416,21 @@ body.can-scroll #scroll-down #scroll-down-icon:active img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 5px 25px 5px;
+  margin: 0 5px 0 5px;
   padding: 0px;
   pointer-events: none;
+}
+.flex-card:first-child {
+  margin: 0 5px 0 0;
+}
+.flex-card:last-child {
+  margin: 0 0 0 5px;
 }
 .flex-card a {
   width: 100%;
   padding-bottom: 100%;
   text-decoration: none;
   pointer-events: all;
-  cursor: none;
 }
 .flex-card a i {
   will-change: transform;
@@ -675,8 +680,13 @@ p.big-text {
 }
 
 .pointer {
-  pointer-events: all;
-  cursor: none;
+  cursor: pointer;
+}
+@media (min-aspect-ratio: 1/1) {
+  .pointer {
+    pointer-events: all;
+    cursor: none;
+  }
 }
 
 .fa-hand-pointer {
